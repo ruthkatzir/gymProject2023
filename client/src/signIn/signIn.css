@@ -1,0 +1,46 @@
+.logIn {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f8f9fa;
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.logIn h1 {
+  font-size: 36px;
+  color: #00ff33;
+  margin-bottom: 20px;
+}
+
+.logIn label {
+  font-size: 20px;
+  color: #00ff33;
+  margin-bottom: 10px;
+}
+
+.logIn input[type=email],
+.logIn input[type=password] {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+.logIn input[type=submit],
+.logIn button {
+  background-color: #00ff33;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 20px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.logIn button[type=submit]:hover,
+.logIn {}
