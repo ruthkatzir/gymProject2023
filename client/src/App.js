@@ -4,12 +4,14 @@ import { BrowserRouter as Router, Routes, Route, NavLink } from "react-router-do
 import SignIn from './signIn/signIn';
 import Schedule from './schedule/Schedule';
 import Prices from './prices/prices';
+import GetStripe from './creditCard/credit'
 
 function App() {
   return (
     <div className="App">
       <Router>
         <nav className='main-nav'>
+        <NavLink to="/getStripe">gf </NavLink>
           <NavLink to="/Prices">מחירון </NavLink>
           <NavLink to="/Schedule">מערכת </NavLink>
           <NavLink to="/signUp">הרשמה </NavLink>
@@ -18,6 +20,7 @@ function App() {
         </nav>
         <Routes>
           {/* <Route path='/' element={<Home />} /> */}
+          <Route path='getStripe' element={<GetStripe></GetStripe>} />
           <Route path='Prices' element={<Prices></Prices>} />
           <Route path='/signUp' element={<Signup></Signup>} />
           <Route path='/signIn' element={<SignIn></SignIn>} />

@@ -19,7 +19,7 @@ app.use('/', express.static(path.join(__dirname, 'public')))
 app.use('/', require('./routes/root'))
 app.use("/api/auth", require("./routes/authRoutes"));
 app.use("/api/price", require("./routes/priceRouter"));
-//app.use("/api/purchase", require("./routes/purchaseRoutes"));//??????????
+app.use("/api/purchase", require("./routes/purchaseRoutes"));
 
 //app.use("/api/lessons", require("./routes/lessonRoutes"));
 //app.use("/api/measurements", require("./routes/measurementRoutes"));

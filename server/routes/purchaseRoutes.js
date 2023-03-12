@@ -1,15 +1,16 @@
 const express = require('express')
 const router = express.Router()
-const purchaseController = require('../controllers/purchaseController')
+const purchasesController = require('../controllers/purchaseController')
 const verifyJWT = require("../middleware/verifyJWT")
 router.use(verifyJWT)
 router.route('/')
-    .get(purchaseController.getAllPurchases)
-    .post(purchaseController.createNewPurchase)
-    .put(purchaseController.updateNumEnterById)
-// .patch(purchaseController.UpdateNumEnterById)
+    .get(purchasesController.getAllPurchases)
+    .post(purchasesController.createNewPurchase)
+    .put(purchasesController.updateNumEnterById)
+// .patch(purchasesController.UpdateNumEnterById)
 
 router.route('/:id')
-    .get(purchaseController.getAllPurchasesByUserId)
+    .get(purchasesController.getAllPurchasesByUserId)
+
 module.exports = router
 

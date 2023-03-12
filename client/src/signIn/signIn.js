@@ -15,7 +15,7 @@ const SignIn = () => {
       const res = await axios.post("http://localhost:3600/api/auth/login", { gmail: email, password });
       if (res.status === 200) {
         setErr("token accept");
-        localStorage.setItem("token", JSON.stringify(res.data.accessToken));
+        localStorage.setItem("token", res.data.accessToken);
         localStorage.setItem("userId", JSON.stringify(email));
         navigate("/signIn/list")
       }

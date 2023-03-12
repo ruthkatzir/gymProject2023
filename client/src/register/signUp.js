@@ -19,7 +19,7 @@ function Signup() {
 
     const registToApi = async (e) => {
         try {
-            const res = await axios.post("http://localhost:3600/api/auth/register", { gmail: email, firstName: firstName, lastName: lastName, phoneNum: phone, password, ImgPath: "aa/aaa/aaaf", DateOfBirth: dob });
+            const res = await axios.post("http://localhost:3600/api/auth/register", { gmail: email, firstName: firstName, lastName: lastName, phoneNum: phone, password, ImgPath: "aa/aaa/aaaf", DateOfBirth: dob })
             setErr("created");
         } catch (err) {
             setErr(err.response.data?.message);
@@ -101,7 +101,6 @@ function Signup() {
                     <button type="submit" onClick={registToApi}>Submit</button>
                     <button onClick={handlePrevStep}>Previous Step</button>
                 </form>
-
             )}
         </div>
     );

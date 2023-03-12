@@ -19,7 +19,7 @@ const { sequelize, DataTypes } = require("./sequelize");
           startDate: {
       
             allowNull: false,
-            type:DataTypes.DATEONLY
+            type:DataTypes.DATE
           }
          ,numEnters:
          {

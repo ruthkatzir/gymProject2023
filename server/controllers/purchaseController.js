@@ -1,5 +1,5 @@
 const e = require("express");
-const { now } = require("sequelize/types/utils");
+//const { now }  = require("sequelize/types/utils");
 const purchaseDal = require("../dal/purchase-DB-acssessor");
 class PurchasesController {
     getAllPurchases = async (req, res) => {
@@ -18,13 +18,20 @@ class PurchasesController {
         }
         res.json(purchases)
     }
+
     createNewPurchase = async (req, res) => {
-        const { userId, numEnters, type, startDate } = req.body
-
-        if (!userId || !numEnters || !type || !startDate)
+        console.log("asfgafdjjklfuydl");
+        // console.log(userId, numEnters, type, startDate);
+        const { userId, numEnters, type } = req.body
+        console.log(userId, numEnters, type);
+        if (!userId || !numEnters || !type)
             return res.status(400).json({ message: 'All fields are required' })
-
-        const purchase = await purchaseDal.createNewPurchase(userId, type, numEnters, startDate)
+        const date = new Date();
+        //const startDate = date.getFullYear();
+        //let data={year:2022,week:"40",day:"01"}
+        
+        console.log("fdsafdag "+date);
+        const purchase = await purchaseDal.createNewPurchase(userId, type, numEnters, date)
 
         if (purchase)
             return res.status(400).json({ message: 'Invalid purchase data received' })
@@ -45,7 +52,7 @@ class PurchasesController {
             purchases.forEach(e => {
                 const validTermAndNum = 0;
                 //דרך נאיבית וגרועה
-                now1 = Date.now();
+                //now1 = Date.now();
                 if (e.type == 1) {
                     // if() chat gpt
                     if (e.numEnters > 1) {
