@@ -1,7 +1,7 @@
 
 const lessonsDal = require("../dal/lesson-DB-accessor");
 //const pricesDal = require("../dal/price-DB-accessor");
-
+console.log("for git");
 class lessonsController {
      getAllLessons=async(req,res)=>{
         const lessons = await lessonsDal.getAllLessons();
