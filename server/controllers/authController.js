@@ -2,7 +2,7 @@ const db = require('../models/index')
 const User = db.users
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
-const email=require('../utils/email')
+const email = require('../utils/email')
 
 const login = async (req, res) => {
     const { gmail, password } = req.body
@@ -14,21 +14,16 @@ const login = async (req, res) => {
     }
     const foundUser = await User.findOne({ where: { gmail: gmail } })
 
-    console.log("innnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn");
+
     console.log(foundUser);
     if (!foundUser) {
-        console.log("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb");
-        return res.status(401).json({ message: 'bbbUnauthorized' })
+        return res.status(401).json({ message: 'Unauthorized' })
     }
-    console.log("before");
     const match = await bcrypt.compare(password, foundUser.password)
-    console.log("before " +match);
-    if (!match) return res.status(401).json({ message: 'aaaaaaaaaaUnauthorized' })
+    if (!match) return res.status(401).json({ message: 'Unauthorized' })
 
     const userInfo = { gmail: foundUser.gmail, firstName: foundUser.firstName, lastName: foundUser.lastName, phoneNum: foundUser.phoneNum, ImgPath: foundUser.ImgPath, DateOfBirth: foundUser.DateOfBirth, roles: foundUser.roles }
-    console.log("pppppppppppppppp "+userInfo.gmail);
     const accessToken = jwt.sign(userInfo, process.env.ACCESS_TOKEN_SECRET)
-    console.log(accessToken + "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
     res.json({ accessToken: accessToken })
 
 }
@@ -38,7 +33,7 @@ const login = async (req, res) => {
 
 const register = async (req, res) => {
     const { gmail, firstName, lastName, phoneNum, password, ImgPath, DateOfBirth, roles } = req.body
-    console.log("aaaaaa"+gmail, firstName, lastName, phoneNum, password, ImgPath, DateOfBirth, roles);
+    console.log("aaaaaa" + gmail, firstName, lastName, phoneNum, password, ImgPath, DateOfBirth, roles);
     if (!gmail || !firstName || !password || !lastName || !ImgPath || !DateOfBirth) // Confirm data
         return res.status(400).json({ message: 'All fields are required' })
     const duplicate = await User.findOne({ where: { gmail: gmail } })

@@ -22,10 +22,11 @@ class schedulesController {
             e.LessonType = await lessonDal.getLessonName(tmpLesson);
             var tmpActive = e.ActiveType;
             e.ActiveType = await activeTypeDal.getActiveTypeName(tmpActive);
-            if (e.ActiveType == '1') {
+            console.log(e.ActiveType);
+            if (e.ActiveType === "lessons") {
                 lessons.push(e)
             }
-            else if (e.ActiveType == '2') {
+            else if (e.ActiveType === 'gym') {
                 gym.push(e);
             }
             else {

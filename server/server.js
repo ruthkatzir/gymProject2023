@@ -8,6 +8,7 @@ const corsOptions = require('./config/corsOptions')
 const PORT = process.env.PORT || 3600
 var bodyParser = require('body-parser')
 
+
 //middleware
 app.use(cors(corsOptions))
 app.use(bodyParser.urlencoded())
@@ -17,9 +18,12 @@ app.use(cookieParser())
 app.use('/', express.static(path.join(__dirname, 'public')))
 app.use('/', require('./routes/root'))
 app.use("/api/auth", require("./routes/authRoutes"));
+app.use("/api/price", require("./routes/priceRouter"));
+//app.use("/api/purchase", require("./routes/purchaseRoutes"));//??????????
+
 //app.use("/api/lessons", require("./routes/lessonRoutes"));
 //app.use("/api/measurements", require("./routes/measurementRoutes"));
-//app.use("/api/schedules", require("./routes/scheduleRoutes"));
+app.use("/api/schedules", require("./routes/scheduleRoutes"));
 //app.use("/api/users", require("./routes/userRoutes"));
 //app.use("/api/secretary", require("./routes/secretaryRoutes"));
 // app.use("/api/recommendations", require("./routes/RecommendationsRoutes"));

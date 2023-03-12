@@ -78,7 +78,7 @@ function Signup() {
                     <button type="submit">Next Step</button>
                 </form>
             )}
-            
+
             {currentStep === 2 && (
                 <form onSubmit={handleSubmit}>
                     <p>Step 2: Other Information</p>

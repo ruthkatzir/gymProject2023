@@ -7,17 +7,18 @@
   border-radius: 10px;
   font-family: sans-serif;
   text-align: center;
+  margin-top: 10%;
 }
 
 .logIn h1 {
   font-size: 36px;
-  color: #00ff33;
+  color: #fd095f;
   margin-bottom: 20px;
 }
 
 .logIn label {
   font-size: 20px;
-  color: #00ff33;
+  color: #fd095f;
   margin-bottom: 10px;
 }
 
@@ -32,7 +33,7 @@
 
 .logIn input[type=submit],
 .logIn button {
-  background-color: #00ff33;
+  background-color: #fd095f;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -42,5 +43,5 @@
   margin-top: 20px;
 }
 
-.logIn button[type=submit]:hover,
-.logIn {}
+/* .logIn button[type=submit]:hover,
+.logIn {} */

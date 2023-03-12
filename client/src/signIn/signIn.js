@@ -1,18 +1,23 @@
 import { useState } from 'react';
+import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
 import './signIn.css';
+import '../register/signUp';
 
 const SignIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [err, setErr] = useState(null);
+  const navigate = useNavigate();
 
-  const SignInToApi = async (e) => {
+  const handleLogin = async (e) => {
     try {
       const res = await axios.post("http://localhost:3600/api/auth/login", { gmail: email, password });
-      if (res.status == 200) {
+      if (res.status === 200) {
         setErr("token accept");
         localStorage.setItem("token", JSON.stringify(res.data.accessToken));
+        localStorage.setItem("userId", JSON.stringify(email));
+        navigate("/signIn/list")
       }
       //navigate("/login")
     } catch (err) {
@@ -33,9 +38,12 @@ const SignIn = () => {
         <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
       </label>
       <br />
-      <button type="submit" onClick={SignInToApi}>signIn</button>
+      <button type="submit" onClick={handleLogin}>signIn</button>
       <br />
       {err && err}
+      <Link to="/signUp">
+        <button>Register</button>
+      </Link>
     </div>
   )
 }

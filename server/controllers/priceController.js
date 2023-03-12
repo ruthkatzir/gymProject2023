@@ -4,6 +4,7 @@ class PricesController {
 
     //get prices by lessonid
     getAllPrices = async (req, res) => {
+        console.log("price");
         const prices = await pricesDal.getAllPrices();
         if (!prices?.length)
             return res.status(400).json({ message: 'No prices found' })

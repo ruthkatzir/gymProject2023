@@ -152,3 +152,209 @@ h2 {
   color: #007bff;
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
 }
+
+/* .App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} */
+
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+}
+
+.form-container {
+  width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="file"],
+input[type="date"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+button[type="submit"] {
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+/* body {
+  background-image: url('background-image.jpg');
+  background-size: cover;
+  background-position: center;
+  font-family: Arial, sans-serif;
+}  */
+
+body {
+  background: linear-gradient(to bottom, #f2f2f2, #fff);
+  /* Replace with your desired gradient */
+  font-family: Arial, sans-serif;
+}
+
+.form-container {
+  width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  margin-top: 100px;
+}
+
+.logIn {
+  width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  margin-top: 100px;
+}
+
+/* Default style for all steps */
+.step {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  font-size: 16px;
+  color: #ccc;
+  margin-right: 10px;
+  position: relative;
+}
+
+/* Style for completed steps */
+.step.completed {
+  border-color: #4CAF50;
+  color: #4CAF50;
+}
+
+/* Style for current step */
+.step.current {
+  border-color: #007bff;
+  color: #007bff;
+}
+
+/* Style for previous step */
+.step.previous {
+  border-color: #ccc;
+  color: #ccc;
+}
+
+h2 {
+  font-size: 24px;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  color: #007bff;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.main-nav {
+  background-color: #5f5d5d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  /* width: 100%; */
+}
+
+.main-nav a {
+  padding: 10px;
+  color: #fff;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+  transition: all 0.3s;
+  background-color: #fff;
+  color: black;
+}
+
+.button-nav {
+  background-color: #5f5d5d;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 30px;
+  /* bottom:auto;
+  position:sticky; */
+  margin-bottom: 0%;
+  padding-bottom: 0%;
+  margin-top: 54%;
+}
+
+.button-nav a {
+  padding: 10px;
+  color: #fff;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.button-nav a:hover,
+.button-nav a.active {
+  transition: all 0.3s;
+  background-color: #fff;
+  color: black;
+  bottom: 50px;
+}
