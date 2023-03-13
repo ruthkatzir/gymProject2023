@@ -22,7 +22,7 @@ app.use("/api/price", require("./routes/priceRouter"));
 app.use("/api/purchase", require("./routes/purchaseRoutes"));
 
 //app.use("/api/lessons", require("./routes/lessonRoutes"));
-//app.use("/api/measurements", require("./routes/measurementRoutes"));
+app.use("/api/measurements", require("./routes/measurementRoutes"));
 app.use("/api/schedules", require("./routes/scheduleRoutes"));
 //app.use("/api/users", require("./routes/userRoutes"));
 //app.use("/api/secretary", require("./routes/secretaryRoutes"));
