@@ -16,7 +16,7 @@ const SignIn = () => {
       if (res.status === 200) {
         setErr("token accept");
         localStorage.setItem("token", res.data.accessToken);
-        localStorage.setItem("userId", JSON.stringify(email));
+        localStorage.setItem("userId", email);
         navigate("/signIn/list")
       }
       //navigate("/login")

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './prices.css';
-
+import BasicCard from './card';
 const Prices = () => {
     const [rows, setRows] = useState([]);
 
@@ -14,7 +14,7 @@ const Prices = () => {
             .catch(error => console.error(error));
     }, []);
 
-    const handleChoosingButtonClick = (rowId) => {
+    const handleChoosingButtonClick = async (rowId) => {
 
         const token = localStorage.getItem("token");
         const userId = localStorage.getItem("userId");
@@ -22,12 +22,16 @@ const Prices = () => {
         const date = current.getDate();
         //const date = `${current.getDate()}/${current.getMonth() + 1}/${current.getFullYear()}`;
         const numEnters = rows[rowId].numEnter;
-        const type = rows[rowId].type;
+        const type = rows[rowId].id;
         const config = {
             headers: { Authorization: `Bearer ${token}` }
         };
         console.log("before");
-        axios.post("http://localhost:3600/api/purchase", { userId: userId, type: type, numEnters: 100 },
+        const res = await axios.get(`http://localhost:3600/api/price/${rowId}`);
+
+        const price = res.data
+
+        axios.post("http://localhost:3600/api/purchase", { userId: userId, type: type, numEnters: price.numEnter },
             config
         ).then(console.log).catch(console.log);
 
@@ -72,6 +76,7 @@ const Prices = () => {
                     ))}
                 </tbody>
             </table>
+            <BasicCard></BasicCard>
         </div>
     );
 };

@@ -21,16 +21,13 @@ class PurchasesController {
 
     createNewPurchase = async (req, res) => {
         console.log("asfgafdjjklfuydl");
-        // console.log(userId, numEnters, type, startDate);
         const { userId, numEnters, type } = req.body
         console.log(userId, numEnters, type);
         if (!userId || !numEnters || !type)
             return res.status(400).json({ message: 'All fields are required' })
-        const date = new Date();
-        //const startDate = date.getFullYear();
-        //let data={year:2022,week:"40",day:"01"}
-        
-        console.log("fdsafdag "+date);
+        const d = new Date();
+        const date = d.toISOString().slice(0, 10);
+
         const purchase = await purchaseDal.createNewPurchase(userId, type, numEnters, date)
 
         if (purchase)

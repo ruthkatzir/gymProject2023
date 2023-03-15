@@ -83,6 +83,7 @@ const Schedule = () => {
                         </tr>
                     </thead>
                     <tbody>
+                        
                         {Array.from({ length: 12 }).map((_, i) => {
                             const hour = i + 8;
                             return (

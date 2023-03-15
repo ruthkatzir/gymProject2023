@@ -1,18 +1,20 @@
 import './App.css';
 import Signup from './register/signUp';
+import AppBar from '@mui/material';
 import { BrowserRouter as Router, Routes, Route, NavLink } from "react-router-dom"
 import SignIn from './signIn/signIn';
 import Schedule from './schedule/Schedule';
 import Prices from './prices/prices';
-import GetStripe from './creditCard/credit'
-import Profile from './profile'
+import  Profile from './profile'
+
 
 function App() {
   return (
     <div className="App">
+      {/* <AppBar/> */}
       <Router>
         <nav className='main-nav'>
-        <NavLink to="/profile">profile </NavLink>
+          <NavLink to="/profile">Profile </NavLink>
           <NavLink to="/Prices">מחירון </NavLink>
           <NavLink to="/Schedule">מערכת </NavLink>
           <NavLink to="/signUp">הרשמה </NavLink>
@@ -26,7 +28,9 @@ function App() {
           <Route path='/signUp' element={<Signup></Signup>} />
           <Route path='/signIn' element={<SignIn></SignIn>} />
           <Route path='Schedule' element={<Schedule></Schedule>} />
+         
           <Route path='*' element={<h1> 404 Page not found</h1>} />
+
         </Routes>
         <nav className='button-nav'>
           <NavLink to="/">דף הבית</NavLink>
