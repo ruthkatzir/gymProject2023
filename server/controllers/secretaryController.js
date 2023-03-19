@@ -30,7 +30,6 @@ class secretaryController {
     // delete activity from schedule
     deleteActivity = async (req, res) => {
         const _id  = req.params.id;
-        console.log("aaaaaaaaaa "+_id);
         // Confirm data
         if (!_id) {
             return res.status(400).json({ message: 'activity ID required' })

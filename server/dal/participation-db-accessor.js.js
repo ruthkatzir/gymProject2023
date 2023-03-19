@@ -7,7 +7,7 @@ class ParticipationsDataAccessor {
     const participations = await Participations.findAll({})
     return participations;
   }
-  getAllParticipationsByUserId = async (id) => {
+  getAllParticipationsByMemberId = async (id) => {
     const participations = await Participations.findAll({ where: { userId: id } });
     return participations;
   }

@@ -10,6 +10,4 @@ router.route('/')
 
 router.route('/:id')
     .get(participationController.getAllParticipationByMemberId)
-router.route('/:Last_id')
-    .get(participationController.getLastParticipationByMemberId)
 module.exports = router

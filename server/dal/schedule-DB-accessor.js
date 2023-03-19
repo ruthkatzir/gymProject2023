@@ -41,12 +41,6 @@ daleteActiveFromSchedule = async (_id) => {
         }
     });
 }
-    // update active in the schedule db -מה מעדכנת?
-    // daleteActiveFromSchedule = async (_id) => {
-    //     const active = await Schedule.update({ title, contents }, { where: { id: _id } })
-    //     return active;
-    // }
-
 }
 const ScheduledataAccessor = new SchedulesDataAccessor();
 module.exports = ScheduledataAccessor;

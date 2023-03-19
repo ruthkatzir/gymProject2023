@@ -20,7 +20,6 @@ class PurchasesController {
     }
 
     createNewPurchase = async (req, res) => {
-        console.log("asfgafdjjklfuydl");
         const { userId, numEnters, type } = req.body
         console.log(userId, numEnters, type);
         if (!userId || !numEnters || !type)
@@ -48,10 +47,7 @@ class PurchasesController {
         else {
             purchases.forEach(e => {
                 const validTermAndNum = 0;
-                //דרך נאיבית וגרועה
-                //now1 = Date.now();
                 if (e.type == 1) {
-                    // if() chat gpt
                     if (e.numEnters > 1) {
                         validTermAndNum = 1;
                     }

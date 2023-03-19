@@ -7,7 +7,6 @@ router.route('/')
     .get(purchasesController.getAllPurchases)
     .post(purchasesController.createNewPurchase)
     .put(purchasesController.updateNumEnterById)
-// .patch(purchasesController.UpdateNumEnterById)
 
 router.route('/:id')
     .get(purchasesController.getAllPurchasesByUserId)

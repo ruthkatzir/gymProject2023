@@ -32,8 +32,7 @@ const login = async (req, res) => {
 
 
 const register = async (req, res) => {
-    const { gmail, firstName, lastName, phoneNum, password, ImgPath, DateOfBirth, roles } = req.body
-    console.log("aaaaaa" + gmail, firstName, lastName, phoneNum, password, ImgPath, DateOfBirth, roles);
+    const { gmail, firstName, lastName, phoneNum, password, ImgPath, DateOfBirth, roles } = req.body;
     if (!gmail || !firstName || !password || !lastName || !ImgPath || !DateOfBirth) // Confirm data
         return res.status(400).json({ message: 'All fields are required' })
     const duplicate = await User.findOne({ where: { gmail: gmail } })
@@ -52,7 +51,5 @@ const register = async (req, res) => {
     } else {
         return res.status(400).json({ message: 'Invalid user data received' })
     }
-
-
 }
 module.exports = { login, register }

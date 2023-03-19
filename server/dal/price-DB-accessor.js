@@ -11,7 +11,6 @@ getAllPrices = async () => {
 
 
 getPriceById = async (_id) => {
-
     const price = await Price.findOne({where:{id:_id}})
     return price;
 }

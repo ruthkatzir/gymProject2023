@@ -21,13 +21,12 @@ app.use("/api/auth", require("./routes/authRoutes"));
 app.use("/api/price", require("./routes/priceRouter"));
 app.use("/api/purchase", require("./routes/purchaseRoutes"));
 
-//app.use("/api/lessons", require("./routes/lessonRoutes"));
+app.use("/api/lessons", require("./routes/lessonRoutes"));
 app.use("/api/measurements", require("./routes/measurementRoutes"));
 app.use("/api/schedules", require("./routes/scheduleRoutes"));
-//app.use("/api/users", require("./routes/userRoutes"));
-//app.use("/api/secretary", require("./routes/secretaryRoutes"));
-// app.use("/api/recommendations", require("./routes/RecommendationsRoutes"));
-//app.use("/api/participations", require("./routes/participationRoutes"))
+app.use("/api/secretary", require("./routes/secretaryRoutes"));
+app.use("/api/recommendations", require("./routes/RecommendationsRoutes"));
+app.use("/api/participations", require("./routes/participationRoutes"))
 
 app.all('*', (req, res) => {
     res.status(404)
