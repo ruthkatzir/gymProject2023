@@ -28,10 +28,10 @@
 .prices td:last-child {
     text-align: center;
 } */
-.prices {
+/* .prices {
     margin: 20px auto;
     max-width: 800px;
-}
+} */
 
 table {
     border-collapse: collapse;

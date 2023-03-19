@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link, useNavigate } from "react-router-dom";
+import TransitionsModal from '../popap1/modal';
 import axios from 'axios';
 import './signIn.css';
 import '../register';
@@ -19,7 +20,6 @@ const SignIn = () => {
         localStorage.setItem("userId", email);
         navigate("/signIn/list")
       }
-      //navigate("/login")
     } catch (err) {
       setErr(err.response.data?.message);
     }
@@ -41,9 +41,10 @@ const SignIn = () => {
       <button type="submit" onClick={handleLogin}>signIn</button>
       <br />
       {err && err}
-      <Link to="/signUp">
+      {/* {<TransitionsModal></TransitionsModal>} */}
+      {/* <Link to="/signUp">
         <button>Register</button>
-      </Link>
+      </Link> */}
     </div>
   )
 }

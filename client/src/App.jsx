@@ -5,8 +5,10 @@ import { BrowserRouter as Router, Routes, Route, NavLink } from "react-router-do
 import SignIn from './signIn';
 import Schedule from './schedule';
 import Prices from './prices';
-import Profile from './profile'
-import ResponsiveAppBar from './navBar'
+import Profile from './profile';
+import ResponsiveAppBar from './navBar';
+import Home from './homePage';
+
 
 function App() {
   return (
@@ -29,6 +31,7 @@ function App() {
           <Route path='/signUp' element={<Signup></Signup>} />
           <Route path='/signIn' element={<SignIn></SignIn>} />
           <Route path='Schedule' element={<Schedule></Schedule>} />
+          <Route path='/homePage' element={<Home></Home>} />
 
           <Route path='*' element={<h1> 404 Page not found</h1>} />
 

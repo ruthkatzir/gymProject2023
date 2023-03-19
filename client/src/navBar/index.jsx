@@ -13,7 +13,7 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 
-const pages = ['profile', 'prices', 'schedule', 'signUp', 'signIn'];
+const pages = ['profile', 'prices', 'schedule', 'signUp', 'signIn', 'homePage'];
 // const pages = [
 //     { name: 'Profile', path: './profile' },
 //     { name: 'Prices', path: './prices' },
@@ -47,7 +47,7 @@ function ResponsiveAppBar() {
     }
 
     return (
-        <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
+        <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }} style={{ backgroundColor: "black" }}>
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
                     <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
@@ -76,7 +76,7 @@ function ResponsiveAppBar() {
                             aria-controls="menu-appbar"
                             aria-haspopup="true"
                             onClick={handleOpenNavMenu}
-                            color="inherit"
+                            color="red"
                         >
                             <MenuIcon />
                         </IconButton>
@@ -118,7 +118,7 @@ function ResponsiveAppBar() {
                             fontFamily: "monospace",
                             fontWeight: 700,
                             letterSpacing: ".3rem",
-                            color: "inherit",
+                            color: "red",
                             textDecoration: "none",
                         }}
                     >
@@ -130,7 +130,7 @@ function ResponsiveAppBar() {
                                 key={page}
                                 onClick={() => navigateTo(`./${page}`)}
                                 // onClick={handleCloseNavMenu}
-                                sx={{ my: 2, color: 'white', display: 'block' }}
+                                sx={{ my: 2, color: 'red', display: 'block' }}
                             >
                                 {page}
                             </Button>

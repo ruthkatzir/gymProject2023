@@ -105,20 +105,18 @@ export default function BasicCard(props) {
 
     return (
         <div style={{ margin: 10 }}>
-            {/* <h1 style={{ color: 'green' }}>
-                GeeksforGeeks</h1> */}
-            <Card raised={true} sx={{ maxWidth: 1500 }}>
+            <Card raised={true} sx={{ maxWidth: 270 }}>
                 <CardMedia
                     component="img"
-                    height="200"
-                    //width="400"
-                    image=
-                    'https://sportivi.co.il/wp-content/uploads/2016/05/grateshape.png'
+                    height="300"
+                    width="10"
+                    image='https://www.nofshonit-club.co.il/files//%D7%97%D7%93%D7%A8%20%D7%9B%D7%95%D7%A9%D7%A8/%D7%97%D7%93%D7%A8_%D7%9B%D7%95%D7%A9%D7%A8_%D7%91%D7%97%D7%95%D7%9C%D7%95%D7%9F_2.jpg'
+
                     alt="GFG Logo"
                 />
                 <CardContent sx={{ bgcolor: "#E8E8E8" }}>
                     <h3>{props.typeName}</h3>
-                    <h4 style={{ color: "green" }}>
+                    <h4 style={{ color: "red" }}>
 
                     </h4>
                 </CardContent>
@@ -150,7 +148,7 @@ export default function BasicCard(props) {
                 <Collapse in={expanded} timeout="auto"
                     unmountOnExit>
                     <CardContent>
-                        {<Typography paragraph style={{ color: 'red', backgroundColor: 'green' }}>
+                        {<Typography paragraph style={{ color: 'red', backgroundColor: 'black' }}>
                             This course does not require any prior knowledge
                             of Data Structure and Algorithms and it covers
                             all topics in two languages: C++ and Java.
