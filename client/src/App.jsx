@@ -10,13 +10,11 @@ import ResponsiveAppBar from './pages/navBar';
 import Home from './pages/homePage';
 import { AuthContext, AuthContextProvider } from './context/authContext';
 
-
 function App() {
   return (
-
     <div className="App">
       <AuthContextProvider>
-      {/* <ThemeProvider theme={theme} > */}
+        {/* <ThemeProvider theme={theme} > */}
         <ResponsiveAppBar></ResponsiveAppBar>
         {/* <AppBar/> */}
         <Router>
@@ -36,13 +34,11 @@ function App() {
             <Route path='/signIn' element={<SignIn></SignIn>} />
             <Route path='Schedule' element={<Schedule></Schedule>} />
             <Route path='/homePage' element={<Home></Home>} />
-
             <Route path='*' element={<h1> 404 Page not found</h1>} />
-
           </Routes>
-          <nav className='button-nav'>
+          {/* <nav className='button-nav'>
             <NavLink to="/">דף הבית</NavLink>
-          </nav>
+          </nav> */}
         </Router>
         {/* </ThemeProvider> */}
       </AuthContextProvider>

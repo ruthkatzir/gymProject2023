@@ -5,7 +5,6 @@ import AppBar from '@mui/material/AppBar';
 import CssBaseline from '@mui/material/CssBaseline';
 import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
-import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -14,15 +13,22 @@ import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import RedBar from './updateMeasurments';
+import ListParticipation from './listPaticipation';
+import { useState, useEffect } from 'react';
+import Main from './mainSideBar';
 
 const drawerWidth = 240;
-
+//new sidebar
 export default function ClippedDrawer() {
-  return (    
-    <Box sx={{ display: 'flex' }}>      
-      <CssBaseline />      
+
+  const [view, setView] = useState(-1);
+
+
+  return (
+    <Box sx={{ display: 'flex' }}>
+      <CssBaseline />
       <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
-      </AppBar>      
+      </AppBar>
       <Drawer
         variant="permanent"
         sx={{
@@ -32,16 +38,16 @@ export default function ClippedDrawer() {
         }}
       >
         <Toolbar />
-        <br/>
+        <br />
         <Box sx={{ overflow: 'auto' }}>
           <List>
-            {['update Data', 'Progress tracking', 'personal work plan', 'Recent participations'].map((text, index) => (
+            {['Main', 'participation', 'Progress tracking', 'personal work plan', 'Recent participations'].map((text, index) => (
               <ListItem key={text} disablePadding>
-                <ListItemButton>
-                  <ListItemIcon>                    
+                <ListItemButton onClick={() => { setView(index) }}>
+                  <ListItemIcon>
                     {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
                   </ListItemIcon>
-                  <ListItemText primary={text}/>
+                  <ListItemText primary={text} />
                 </ListItemButton>
               </ListItem>
             ))}
@@ -50,34 +56,12 @@ export default function ClippedDrawer() {
         </Box>
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-        <Toolbar />
-        <Typography paragraph>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus non
-          enim praesent elementum facilisis leo vel. Risus at ultrices mi tempus
-          imperdiet. Semper risus in hendrerit gravida rutrum quisque non tellus.
-          Convallis convallis tellus id interdum velit laoreet id donec ultrices.
-          Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
-          adipiscing bibendum est ultricies integer quis. Cursus euismod quis viverra
-          nibh cras. Metus vulputate eu scelerisque felis imperdiet proin fermentum
-          leo. Mauris commodo quis imperdiet massa tincidunt. Cras tincidunt lobortis
-          feugiat vivamus at augue. At augue eget arcu dictum varius duis at
-          consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem donec massa
-          sapien faucibus et molestie ac.
-        </Typography>
-        <Typography paragraph>
-          Consequat mauris nunc congue nisi vitae suscipit. Fringilla est ullamcorper
-          eget nulla facilisi etiam dignissim diam. Pulvinar elementum integer enim
-          neque volutpat ac tincidunt. Ornare suspendisse sed nisi lacus sed viverra
-          tellus. Purus sit amet volutpat consequat mauris. Elementum eu facilisis
-          sed odio morbi. Euismod lacinia at quis risus sed vulputate odio. Morbi
-          tincidunt ornare massa eget egestas purus viverra accumsan in. In hendrerit
-          gravida rutrum quisque non tellus orci ac. Pellentesque nec nam aliquam sem
-          et tortor. Habitant morbi tristique senectus et. Adipiscing elit duis
-          tristique sollicitudin nibh sit. Ornare aenean euismod elementum nisi quis
-          eleifend. Commodo viverra maecenas accumsan lacus vel facilisis. Nulla
-          posuere sollicitudin aliquam ultrices sagittis orci a.
-        </Typography>
+        {/* <Toolbar /> */}
+        {view === 0 && <Main></Main>}
+        {view === 1 && <ListParticipation></ListParticipation>}
+        {view === 2 && <RedBar></RedBar>}
+        {/* {view === 2 && <ListParticipation></ListParticipation>}
+        {view === 3 && <ListParticipation></ListParticipation>} */}
       </Box>
     </Box>
   );

@@ -7,8 +7,8 @@ const Schedule = (props) => {
     const [rows2, setRows2] = useState([]);
     const [rows3, setRows3] = useState([]);
     const currentStep = props.page;
-    
-    console.log(currentStep +'currentStep')
+
+    console.log(currentStep + 'currentStep')
 
     useEffect(() => {
         axios
@@ -85,7 +85,7 @@ const Schedule = (props) => {
                         </tr>
                     </thead>
                     <tbody>
-                        
+
                         {Array.from({ length: 12 }).map((_, i) => {
                             const hour = i + 8;
                             return (

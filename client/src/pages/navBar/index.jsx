@@ -12,21 +12,18 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
-import { useState ,useContext} from 'react';
-import { AuthContext } from "../../context/authContext"; 
+import { useState, useContext } from 'react';
+import { AuthContext } from "../../context/authContext";
 import PopupSignIn from '../popupSingIn';
 import PopupSignUp from '../popupSingUp';
-// import SignIn from '../signIn';
-// import Signup from '../register';
 
-const pages = ['homePage', 'profile', 'prices', 'schedule'];
+const pages = ['homePage', 'prices', 'schedule'];
 const settings = ['sign out'];
-
 
 function ResponsiveAppBar() {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
-    const { token, logout,currentUser } = useContext(AuthContext);
+    const { token, logout, currentUser } = useContext(AuthContext);
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
@@ -48,8 +45,8 @@ function ResponsiveAppBar() {
 
     return (
         <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }} style={{ backgroundColor: "black" }}>
-            <Container maxWidth="xl">                
-                <Toolbar disableGutters>                    
+            <Container maxWidth="xl">
+                <Toolbar disableGutters>
                     <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
                     <Typography
                         variant="h6"
@@ -136,11 +133,11 @@ function ResponsiveAppBar() {
                         ))}
                     </Box>
                     <Box sx={{ flexGrow: 0 }}>
-                      {token &&   <Tooltip title="Open settings">
-                           <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                            {/*{currentUser.firstName.toUpperCase()} */}
+                        {token && <Tooltip title="Open settings">
+                            <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                                {/*{currentUser.firstName.toUpperCase()} */}
                                 <Avatar alt="" src="/static/images/avatar/2.jpg" />
-                            </IconButton>                           
+                            </IconButton>
                         </Tooltip>}
                         <Menu
                             sx={{ mt: '45px' }}
@@ -158,17 +155,17 @@ function ResponsiveAppBar() {
                             open={Boolean(anchorElUser)}
                             onClose={handleCloseUserMenu}
                         >
-                            <MenuItem  onClick={handleCloseUserMenu}>
+                            <MenuItem onClick={handleCloseUserMenu}>
                                 <Typography textAlign="center" onClick={() => logout()}>sign out</Typography>
                             </MenuItem>
 
-                            <MenuItem  onClick={handleCloseUserMenu}>                              
+                            <MenuItem onClick={handleCloseUserMenu}>
                                 <Typography textAlign="center" onClick={() => navigateTo(`profile`)}>my profile</Typography>
                             </MenuItem>
                         </Menu>
                     </Box>
                     {!token && <PopupSignIn></PopupSignIn>}
-                    {!token && <PopupSignUp></PopupSignUp>} 
+                    {!token && <PopupSignUp></PopupSignUp>}
                 </Toolbar>
             </Container>
         </AppBar>
