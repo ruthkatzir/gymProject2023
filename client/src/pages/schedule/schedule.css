@@ -69,3 +69,8 @@ tr:hover {
     box-shadow: 0 5px #666;
     transform: translateY(4px);
   }
+  @media (min-width: 1280px) {
+    .MuiGrid-grid-lg-6 {
+        margin-top: 10% !important;
+    }
+}

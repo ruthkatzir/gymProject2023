@@ -44,7 +44,7 @@ function ResponsiveAppBar() {
     return (
         <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }} style={{ backgroundColor: "black" }}>
             <Container maxWidth="xl">
-                <Toolbar disableGutters>
+                <Toolbar disableGutters>                    
                     <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
                     <Typography
                         variant="h6"
@@ -135,7 +135,7 @@ function ResponsiveAppBar() {
                         <Tooltip title="Open settings">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-                            </IconButton>
+                            </IconButton>                           
                         </Tooltip>
                         <Menu
                             sx={{ mt: '45px' }}
@@ -160,7 +160,7 @@ function ResponsiveAppBar() {
                             ))}
                         </Menu>
                     </Box>
-                    <Popap></Popap>
+                      <Popap></Popap>  
                 </Toolbar>
             </Container>
         </AppBar>

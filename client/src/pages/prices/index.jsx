@@ -162,6 +162,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './prices.css';
 import CourseCard from './card';
+import StepContent from '../creditCard/index'
 import { Grid } from '@material-ui/core';
 
 const Prices = () => {
@@ -201,6 +202,7 @@ const Prices = () => {
 
     return (
         <div className="prices" style={{ marginTop: 70, color: 'red' }}>
+            {/* <StepContent></StepContent> */}
             <Grid container spacing={1}>
                 {rows.map((row) => (
                     <React.Fragment key={row.id}>
