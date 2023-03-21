@@ -10,7 +10,7 @@ import { autocompleteClasses } from "@mui/material";
 import {AuthContext} from '../../context/authContext';
 import { useContext } from 'react';
 
-const TransitionsModal = () => {
+const PopupSignIn = () => {
 
   const style = {
     position: 'absolute',
@@ -27,7 +27,8 @@ const TransitionsModal = () => {
 
   return (
     <div>
-      <Button id='lgnBtn' variant="contained" color="secondary" onClick={handleOpen}>Sign In / Log In</Button>
+      <Button variant="text" onClick={handleOpen}>Sign in</Button>
+      {/* <Button id='lgnBtn' variant="contained" color="secondary" onClick={handleOpen}>Sign In / Log In</Button> */}
       <Modal
         keepMounted
         open={open}
@@ -40,6 +41,7 @@ const TransitionsModal = () => {
             <div className="main">
               <input type="checkbox" id="chk" aria-hidden="true"></input>
               <SignIn></SignIn>
+              
             </div>
           </Typography>
         </Box>
@@ -48,6 +50,6 @@ const TransitionsModal = () => {
   );
 }
 
-export default TransitionsModal;
+export default PopupSignIn;
 
 

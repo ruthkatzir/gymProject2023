@@ -14,9 +14,10 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import { useState ,useContext} from 'react';
 import { AuthContext } from "../../context/authContext"; 
-import Popap from '../popap1';
-import SignIn from '../signIn';
-import Signup from '../register';
+import PopupSignIn from '../popupSingIn';
+import PopupSignUp from '../popupSingUp';
+// import SignIn from '../signIn';
+// import Signup from '../register';
 
 const pages = ['homePage', 'profile', 'prices', 'schedule'];
 const settings = ['sign out'];
@@ -25,7 +26,7 @@ const settings = ['sign out'];
 function ResponsiveAppBar() {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
-    const {currentUser} = useContext(AuthContext); 
+    const { token, logout,currentUser } = useContext(AuthContext);
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
@@ -47,7 +48,7 @@ function ResponsiveAppBar() {
 
     return (
         <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }} style={{ backgroundColor: "black" }}>
-            <Container maxWidth="xl">
+            <Container maxWidth="xl">                
                 <Toolbar disableGutters>                    
                     <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
                     <Typography
@@ -128,7 +129,6 @@ function ResponsiveAppBar() {
                             <Button
                                 key={page}
                                 onClick={() => navigateTo(`./${page}`)}
-                                // onClick={handleCloseNavMenu}
                                 sx={{ my: 2, color: 'red', display: 'block' }}
                             >
                                 {page}
@@ -136,13 +136,12 @@ function ResponsiveAppBar() {
                         ))}
                     </Box>
                     <Box sx={{ flexGrow: 0 }}>
-                        <Tooltip title="Open settings">
-                            <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                            {/* {currentUser.firstName.toUpperCase()}*/}
-                            
+                      {token &&   <Tooltip title="Open settings">
+                           <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                            {/*{currentUser.firstName.toUpperCase()} */}
                                 <Avatar alt="" src="/static/images/avatar/2.jpg" />
                             </IconButton>                           
-                        </Tooltip>
+                        </Tooltip>}
                         <Menu
                             sx={{ mt: '45px' }}
                             id="menu-appbar"
@@ -159,14 +158,17 @@ function ResponsiveAppBar() {
                             open={Boolean(anchorElUser)}
                             onClose={handleCloseUserMenu}
                         >
-                            {settings.map((setting) => (
-                                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                                    <Typography textAlign="center" onClick={() => navigateTo(`./${setting}`)}>{setting}</Typography>
-                                </MenuItem>
-                            ))}
+                            <MenuItem  onClick={handleCloseUserMenu}>
+                                <Typography textAlign="center" onClick={() => logout()}>sign out</Typography>
+                            </MenuItem>
+
+                            <MenuItem  onClick={handleCloseUserMenu}>                              
+                                <Typography textAlign="center" onClick={() => navigateTo(`profile`)}>my profile</Typography>
+                            </MenuItem>
                         </Menu>
                     </Box>
-                      <Popap></Popap>  
+                    {!token && <PopupSignIn></PopupSignIn>}
+                    {!token && <PopupSignUp></PopupSignUp>} 
                 </Toolbar>
             </Container>
         </AppBar>
