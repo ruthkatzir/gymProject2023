@@ -18,10 +18,9 @@ import DisplayRating from './DisplayRating'
 const ListParticipation = (props) => {
 
     const [userParticipations, setUserParticipations] = useState([]);
-   
 
   useEffect(()=>{
-    
+
  
    setUserParticipations([{id: 1, userId: 't@gmail.com', guideName: '"aaa"', dateLesson: '2020-03-01', lessonType: 'zomba',grading:4},{id: 1, userId: 't@gmail.com', guideName: '"aaa"', dateLesson: '2020-04-01', lessonType: 'zomba',grading:4}])
    //  const userId= "t@gmail.com"//localStorage.getItem("userId").

@@ -12,6 +12,8 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import { useState ,useContext} from 'react';
+import { AuthContext } from "../../context/authContext"; 
 import Popap from '../popap1';
 import SignIn from '../signIn';
 import Signup from '../register';
@@ -19,9 +21,11 @@ import Signup from '../register';
 const pages = ['homePage', 'profile', 'prices', 'schedule'];
 const settings = ['sign out'];
 
+
 function ResponsiveAppBar() {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
+    const {currentUser} = useContext(AuthContext); 
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
@@ -134,7 +138,9 @@ function ResponsiveAppBar() {
                     <Box sx={{ flexGrow: 0 }}>
                         <Tooltip title="Open settings">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                            {/* {currentUser.firstName.toUpperCase()}*/}
+                            
+                                <Avatar alt="" src="/static/images/avatar/2.jpg" />
                             </IconButton>                           
                         </Tooltip>
                         <Menu

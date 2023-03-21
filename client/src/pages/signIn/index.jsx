@@ -7,24 +7,18 @@ import './signIn.css';
 import '../register';
 
 const SignIn = () => {
-  const {login} = useContext(AuthContext);
+ 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [err, setErr] = useState(null);
-  //const navigate = useNavigate();
-
+const {login} = useContext(AuthContext); 
   const handleLogin = async (e) => {
-    try {
-      const res = await axios.post("http://localhost:3600/api/auth/login", { gmail: email, password });
-      if (res.status === 200) {
-        setErr("token accept");
-        localStorage.setItem("token", res.data.accessToken);
-        localStorage.setItem("userId", email);
-        // navigate("/signIn/list")
-      }
+    try { 
+      await login({ email, password}) 
     } catch (err) {
       setErr(err.response.data?.message);
     }
+    
   };
 
   return (
@@ -51,58 +45,3 @@ const SignIn = () => {
   )
 }
 export default SignIn;
-
-// import { useState , useContext} from 'react';
-// import { Link, useNavigate } from "react-router-dom";
-// import TransitionsModal from '../popap1/modal';
-// import axios from 'axios';
-// import './signIn.css';
-// //import '../register';
-// import { AuthContext } from "../../context/authContext";
-// const SignIn = () => {
-//   const [email, setEmail] = useState('');
-//   const [password, setPassword] = useState('');
-//   const [err, setErr] = useState(null);
-//   const navigate = useNavigate();
-
-//   const {login} = useContext(AuthContext)
-//   const handleLogin = async (e) => {
-//     try {
-//       //await login({ email, password})   
-//       // navigate("/signIn/list")
- 
-//       const res = await axios.post("http://localhost:3600/api/auth/login", { gmail: email, password });
-//       if (res.status === 200) {
-//         setErr("token accept");
-//         localStorage.setItem("token", res.data.accessToken);
-//         localStorage.setItem("userId", email);
-
-//     }} catch (err) {
-//       setErr(err.response.data?.message);
-//     }
-//   };
-
-//   return (
-//     <div className="logIn">
-//       <h1>signIn</h1>
-//       <label>
-//         Email:
-//         <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-//       </label>
-//       <br />
-//       <label>
-//         Password:
-//         <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-//       </label>
-//       <br />
-//       <button type="submit" onClick={handleLogin}>signIn</button>
-//       <br />
-//       {err && err}
-//       {/* {<TransitionsModal></TransitionsModal>} */}
-//       {/* <Link to="/signUp">
-//         <button>Register</button>
-//       </Link> */}
-//     </div>
-//   )
-// }
-// export default SignIn;
