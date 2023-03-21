@@ -1,11 +1,11 @@
-import DataGridDemo from './dataGrid';
+import WeeklySchedule from './gptData';
 
 const Secretery = () => {
 
   return (
     <>
       <h1>מסך פתיחה מזכירה</h1>
-      <DataGridDemo></DataGridDemo>
+      <WeeklySchedule></WeeklySchedule>
     </>
   );
 }

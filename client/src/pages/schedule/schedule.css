@@ -87,7 +87,7 @@ tr:hover {
 .pagination-container {
     margin-left: auto;
     margin-right: auto;
-    max-width: 600px;
+    max-width: 20% !important;
 }
 
 @media (min-width: 600px) {
@@ -103,8 +103,10 @@ tr:hover {
     }
 }
 
-@media (min-width: 960px) {
+@media (min-width: 1000px) {
     .schedule-container {
+        /* max-width: 50% !important;
+        max-height: 10% !important; */
         margin-left: 30%;
         margin-right: 30%;
     }

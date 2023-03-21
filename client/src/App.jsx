@@ -8,6 +8,7 @@ import Prices from './pages/prices';
 import Profile from './pages/profile';
 import ResponsiveAppBar from './pages/navBar';
 import Home from './pages/homePage';
+import Secretery from '../src/pages/Admin/index';
 import { AuthContext, AuthContextProvider } from './context/authContext';
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
         </nav> */}
           <Routes>
             {/* <Route path='/' element={<Home />} /> */}
+            <Route path='secretery' element={<Secretery></Secretery>} />
             <Route path='profile' element={<Profile></Profile>} />
             <Route path='Prices' element={<Prices></Prices>} />
             <Route path='/signUp' element={<Signup></Signup>} />
