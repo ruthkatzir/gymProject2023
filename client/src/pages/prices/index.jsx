@@ -201,10 +201,10 @@ const Prices = () => {
 
     return (
         <div className="prices" style={{ marginTop: 70, color: 'red' }}>
-            <Grid container spacing={2}>
+            <Grid container spacing={1}>
                 {rows.map((row) => (
                     <React.Fragment key={row.id}>
-                        <Grid item xs={12} sm={6} md={3} lg={6}>
+                        <Grid item xs={6} sm={4} md={3} lg={6}>
                             <CourseCard
                                 type={row.id}
                                 typeName={row.type}
@@ -218,8 +218,6 @@ const Prices = () => {
                     </React.Fragment>
                 ))}
             </Grid>
-
-
         </div>
     );
 };

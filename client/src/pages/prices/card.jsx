@@ -60,6 +60,7 @@ import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import Collapse from '@mui/material/Collapse';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+ import img from './1.jpg';
 
 const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
@@ -105,13 +106,14 @@ export default function BasicCard(props) {
 
     return (
         <div style={{ margin: 10 }}>
-            <Card raised={true} sx={{ maxWidth: 270 }}>
+            <Card raised={true} sx={{ maxWidth: 270}}>
                 <CardMedia
                     component="img"
-                    height="300"
-                    width="10"
-                    image='https://www.nofshonit-club.co.il/files//%D7%97%D7%93%D7%A8%20%D7%9B%D7%95%D7%A9%D7%A8/%D7%97%D7%93%D7%A8_%D7%9B%D7%95%D7%A9%D7%A8_%D7%91%D7%97%D7%95%D7%9C%D7%95%D7%9F_2.jpg'
-
+                     height="300"
+                    // width="10"
+                    //src={'./1.jpg'}
+                     image={img}
+                    //'https://www.nofshonit-club.co.il/files//%D7%97%D7%93%D7%A8%20%D7%9B%D7%95%D7%A9%D7%A8/%D7%97%D7%93%D7%A8_%D7%9B%D7%95%D7%A9%D7%A8_%D7%91%D7%97%D7%95%D7%9C%D7%95%D7%9F_2.jpg'
                     alt="GFG Logo"
                 />
                 <CardContent sx={{ bgcolor: "#E8E8E8" }}>
@@ -134,7 +136,7 @@ export default function BasicCard(props) {
 
                     <Button variant="contained"
                         color="success">
-                        Expand more
+                         more
                         <ExpandMore
                             expand={expanded}
                             onClick={handleExpandClick}

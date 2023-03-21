@@ -16,15 +16,18 @@ import InboxIcon from '@mui/icons-material/MoveToInbox';
  import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
 import ListParticipation from "./listPaticipation";
 import Measurment from './updateMeasurments';
-
+import Participation   from './participation';
+import RedBar from './updateMeasurments';
  const drawerWidth = 400;
 
 export default function ClippedDrawer() {
   return (
     <>
+    <RedBar></RedBar>
+   {/* <Participation icon={1} details={{id: 1, userId: 't@gmail.com', guideName: '"aaa"', dateLesson: '2020-03-01', lessonType: 'zomba',grading:4}}></Participation> */}
    {/* <ListParticipation></ListParticipation> */}
-   <br></br>
-   <Measurment></Measurment>
+   {/* <br></br> */}
+   {/* <Measurment></Measurment> */}
 </>
   
     // <Box sx={{ display: 'flex' }}>

@@ -75,3 +75,12 @@ td span {
     font-weight: bold;
     color: red;
 }
+
+@media (min-width: 1280px) {
+    .MuiGrid-grid-lg-6 {
+        max-width: 25% !important;
+        /* max-height: 50% !important; */
+        min-height: 50% !important;
+        margin-top: 10% !important;
+    }
+}

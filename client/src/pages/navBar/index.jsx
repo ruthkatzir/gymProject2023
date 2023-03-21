@@ -12,16 +12,11 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import Popap from '../popap1';
+import SignIn from '../signIn';
+import Signup from '../register';
 
-const pages = ['profile', 'prices', 'schedule', 'signUp', 'signIn', 'homePage'];
-// const pages = [
-//     { name: 'Profile', path: './profile' },
-//     { name: 'Prices', path: './prices' },
-//     { name: 'Schedule', path: './schedule' },
-//     { name: 'signUp', path: './register' },
-//     { name: 'signIn', path: './signIn' },
-//     { name: 'HomePage', path: './App' },
-// ];
+const pages = ['homePage', 'profile', 'prices', 'schedule'];
 const settings = ['sign out'];
 
 function ResponsiveAppBar() {
@@ -136,7 +131,6 @@ function ResponsiveAppBar() {
                             </Button>
                         ))}
                     </Box>
-
                     <Box sx={{ flexGrow: 0 }}>
                         <Tooltip title="Open settings">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
@@ -161,11 +155,12 @@ function ResponsiveAppBar() {
                         >
                             {settings.map((setting) => (
                                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                                    <Typography textAlign="center">{setting}</Typography>
+                                    <Typography textAlign="center" onClick={() => navigateTo(`./${setting}`)}>{setting}</Typography>
                                 </MenuItem>
                             ))}
                         </Menu>
                     </Box>
+                    <Popap></Popap>
                 </Toolbar>
             </Container>
         </AppBar>
