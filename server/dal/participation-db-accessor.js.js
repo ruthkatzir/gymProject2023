@@ -1,5 +1,5 @@
 const db = require('../models/index')
-const Participations = db.participations
+const Participations = db.participation
 
 class ParticipationsDataAccessor {
   // Get all participations from DB
