@@ -21,22 +21,6 @@ const Schedule = (props) => {
             })
             .catch((error) => console.error(error));
     }, []);
-
-    // const handleNextStep = (e) => {
-    //     e.preventDefault();
-    //     {
-    //         if (currentStep < 3) {
-    //             setCurrentStep(currentStep + 1);
-    //         }
-    //     }
-
-    // }
-    // const handlePrevStep = (e) => {
-    //     e.preventDefault();
-    //     if (currentStep > 1) {
-    //         setCurrentStep(currentStep - 1);
-    //     }
-    // }
     return (
         (<div className="schedule">
             {currentStep === 1 && <h2>Lessons</h2>}
@@ -54,7 +38,7 @@ const Schedule = (props) => {
                         </tr>
                     </thead>
                     <tbody>
-                        {Array.from({ length: 12 }).map((_, i) => {
+                        {Array.from({ length: 10 }).map((_, i) => {
                             const hour = i + 8;
                             return (
                                 <tr key={hour}>
@@ -86,7 +70,7 @@ const Schedule = (props) => {
                     </thead>
                     <tbody>
 
-                        {Array.from({ length: 12 }).map((_, i) => {
+                        {Array.from({ length: 10 }).map((_, i) => {
                             const hour = i + 8;
                             return (
                                 <tr key={hour}>
@@ -117,7 +101,7 @@ const Schedule = (props) => {
                         </tr>
                     </thead>
                     <tbody>
-                        {Array.from({ length: 12 }).map((_, i) => {
+                        {Array.from({ length: 10 }).map((_, i) => {
                             const hour = i + 8;
                             return (
                                 <tr key={hour}>
@@ -133,8 +117,6 @@ const Schedule = (props) => {
                         })}
                     </tbody>
                 </table>}
-            {/* <button type="submit" class="button" onClick={handleNextStep}>Next schedules</button>
-            <button type="submit" class="button" onClick={handlePrevStep}>Prev schedules</button> */}
         </div>
         ));
 };

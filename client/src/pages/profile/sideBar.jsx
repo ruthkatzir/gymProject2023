@@ -41,7 +41,7 @@ export default function ClippedDrawer() {
         <br />
         <Box sx={{ overflow: 'auto' }}>
           <List>
-            {['Main', 'participation', 'Progress tracking', 'personal work plan', 'Recent participations'].map((text, index) => (
+            {['participation', 'Progress tracking','personal status' ,'personal work plan'].map((text, index) => (
               <ListItem key={text} disablePadding>
                 <ListItemButton onClick={() => { setView(index) }}>
                   <ListItemIcon>
@@ -57,9 +57,10 @@ export default function ClippedDrawer() {
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         {/* <Toolbar /> */}
-        {view === 0 && <Main></Main>}
-        {view === 1 && <ListParticipation></ListParticipation>}
-        {view === 2 && <RedBar></RedBar>}
+        {/* {view === 0 && } */}
+        {view === -1 && <Main></Main>}
+        {view === 0 && <ListParticipation></ListParticipation>}
+        {view === 1 && <RedBar></RedBar>}
         {/* {view === 2 && <ListParticipation></ListParticipation>}
         {view === 3 && <ListParticipation></ListParticipation>} */}
       </Box>

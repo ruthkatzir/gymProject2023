@@ -7,7 +7,7 @@ import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { autocompleteClasses } from "@mui/material";
-import {AuthContext} from '../../context/authContext';
+import { AuthContext } from '../../context/authContext';
 import { useContext } from 'react';
 
 const PopupSignIn = () => {
@@ -21,13 +21,13 @@ const PopupSignIn = () => {
 
   };
   const [open, setOpen] = React.useState(false);
-  const {token} = useContext(AuthContext);
+  const { token } = useContext(AuthContext);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   return (
     <div>
-      <Button variant="text" onClick={handleOpen}>Sign in</Button>
+      <Button variant="text" onClick={handleOpen} style={{ color: 'red' }}>Sign in</Button>
       {/* <Button id='lgnBtn' variant="contained" color="secondary" onClick={handleOpen}>Sign In / Log In</Button> */}
       <Modal
         keepMounted
@@ -41,7 +41,7 @@ const PopupSignIn = () => {
             <div className="main">
               <input type="checkbox" id="chk" aria-hidden="true"></input>
               <SignIn></SignIn>
-              
+
             </div>
           </Typography>
         </Box>

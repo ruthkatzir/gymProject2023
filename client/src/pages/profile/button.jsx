@@ -38,7 +38,9 @@ const Btns = (props) => {
             <Button
                 style={{
                     width: 100,
+                    marginLeft:50,
                     backgroundColor: '#4caf50',
+                    marginTop:2,
                     color: 'white',
                     '&:hover': {
                         backgroundColor: '#357a38'

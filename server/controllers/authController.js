@@ -3,10 +3,11 @@ const User = db.users
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const email = require('../utils/email')
+// process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
 const login = async (req, res) => {
     const { gmail, password } = req.body
-
+    console.log(gmail, password);
     if (!gmail || !password) {
         return res.status(400).json({
             message: 'All fields are required'
@@ -24,7 +25,7 @@ const login = async (req, res) => {
 
     const userInfo = { gmail: foundUser.gmail, firstName: foundUser.firstName, lastName: foundUser.lastName, phoneNum: foundUser.phoneNum, ImgPath: foundUser.ImgPath, DateOfBirth: foundUser.DateOfBirth, roles: foundUser.roles }
     const accessToken = jwt.sign(userInfo, process.env.ACCESS_TOKEN_SECRET)
-    res.json({ accessToken: accessToken, user:userInfo})
+    res.json({ accessToken: accessToken, user: userInfo })
 
 }
 
@@ -32,6 +33,7 @@ const login = async (req, res) => {
 
 
 const register = async (req, res) => {
+    console.log("rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr");
     const { gmail, firstName, lastName, phoneNum, password, ImgPath, DateOfBirth, roles } = req.body;
     if (!gmail || !firstName || !password || !lastName || !ImgPath || !DateOfBirth) // Confirm data
         return res.status(400).json({ message: 'All fields are required' })
@@ -39,8 +41,9 @@ const register = async (req, res) => {
     if (duplicate) {
         return res.status(409).json({ message: "Duplicate username" })
     }
-    const hashedPwd = await bcrypt.hash(password, 10)
-    const userObject = { gmail, firstName, lastName, phoneNum, ImgPath, DateOfBirth, roles, password: hashedPwd }
+    const hashedPwd = await bcrypt.hash(password, 10);
+    console.log("rweretw " + DateOfBirth);
+    const userObject = { gmail, firstName, lastName, phoneNum, password: hashedPwd, ImgPath, DateOfBirth, roles }
 
     const user = await User.create(userObject)
     if (user) { // Created

@@ -1,4 +1,4 @@
-import './App.css';
+//import './App.css';
 import Signup from '../src/pages/register';
 //import AppBar from '@mui/material';
 import { BrowserRouter as Router, Routes, Route, NavLink } from "react-router-dom"
