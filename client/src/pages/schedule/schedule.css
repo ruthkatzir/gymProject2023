@@ -1,113 +1,134 @@
-.schedule {
-    font-family: Arial, sans-serif;
-    margin: 50px auto;
-    max-width: 800px;
-}
+ .schedule {
+     font-family: Arial, sans-serif;
+     margin-top: 10vh;
+     margin: 20vh, 10pc, 10pc, 10pc;
+     height: 50pc;
+     width: 50pc;
+     /* max-width: 800px; */
+ }
 
-table {
-    border-collapse: collapse;
-    width: 100%;
-}
+ table {
+     border-collapse: collapse;
+     width: 100%;
+ }
 
-th,
-td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: center;
-}
+ th,
+ td {
+     border: 1px solid #ddd;
+     padding: 8px;
+     text-align: center;
+ }
 
-th {
-    background-color: #f2f2f2;
-    font-weight: bold;
-    text-transform: uppercase;
-}
+ th {
+     background-color: #f2f2f2;
+     font-weight: bold;
+     text-transform: uppercase;
+ }
 
-tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
+ tr:nth-child(even) {
+     background-color: #f2f2f2;
+ }
 
-tr:hover {
-    background-color: #ddd;
-}
+ tr:hover {
+     background-color: #ddd;
+ }
 
-.hour-cell {
-    font-weight: bold;
-}
+ .hour-cell {
+     font-weight: bold;
+ }
 
-@media (max-width: 767px) {
-    table {
-        font-size: 12px;
-    }
+ @media (max-width: 767px) {
+     table {
+         font-size: 12px;
+     }
 
-    th,
-    td {
-        padding: 5px;
-    }
-}
+     th,
+     td {
+         padding: 5px;
+     }
+ }
 
-.button {
-    display: inline-block;
-    padding: 15px 25px;
-    font-size: 24px;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    outline: none;
-    color: #fff;
-    background-color: #4CAF50;
-    border: none;
-    border-radius: 15px;
-    box-shadow: 0 9px #999;
-    height: 10%;
-    width: 30%;
-    margin-left: 5%;
-}
+ .button {
+     display: inline-block;
+     padding: 15px 25px;
+     font-size: 24px;
+     cursor: pointer;
+     text-align: center;
+     text-decoration: none;
+     outline: none;
+     color: #fff;
+     background-color: #4CAF50;
+     border: none;
+     border-radius: 15px;
+     box-shadow: 0 9px #999;
+     height: 10%;
+     width: 30%;
+     margin-left: 5%;
+ }
 
-.button:hover {
-    background-color: #3e8e41
-}
+ .button:hover {
+     background-color: #3e8e41
+ }
 
-.button:active {
-    background-color: #3e8e41;
-    box-shadow: 0 5px #666;
-    transform: translateY(4px);
-}
+ .button:active {
+     background-color: #3e8e41;
+     box-shadow: 0 5px #666;
+     transform: translateY(4px);
+ }
 
-@media (min-width: 1280px) {
-    .MuiGrid-grid-lg-6 {
-        margin-top: 10% !important;
-    }
-}
+ @media (min-width: 1280px) {
+     .MuiGrid-grid-lg-6 {
+         margin-top: 10% !important;
+     }
+ }
 
-.schedule-container {
-    margin-left: 10%;
-    margin-right: 10%;
-}
+ .schedule-container {
+     margin-left: 10%;
+     margin-right: 10%;
+ }
 
-.pagination-container {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 20% !important;
-}
+ .pagination-container {
+     margin-left: auto;
+     margin-right: auto;
+     max-width: 20% !important;
+ }
 
-@media (min-width: 600px) {
-    .schedule-container {
-        margin-left: 20%;
-        margin-right: 20%;
-    }
+ @media (min-width: 600px) {
+     .schedule-container {
+         margin-left: 20%;
+         margin-right: 20%;
+     }
 
-    .pagination-container {
-        margin-left: auto;
-        margin-right: auto;
-        max-width: 800px;
-    }
-}
+     .pagination-container {
+         margin-left: auto;
+         margin-right: auto;
+         max-width: 800px;
+     }
+ }
 
-@media (min-width: 1000px) {
-    .schedule-container {
-        /* max-width: 50% !important;
+ @media (min-width: 1000px) {
+     .schedule-container {
+         /* max-width: 50% !important;
         max-height: 10% !important; */
-        margin-left: 30%;
-        margin-right: 30%;
-    }
-}
+         margin-left: 30%;
+         margin-right: 30%;
+     }
+ }
+
+ /* .schedule {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  } */
+
+ /* table {
+     margin-top: 2rem;
+ }
+
+ @media screen and (min-width: 768px) {
+     .schedule {
+         flex-direction: row;
+         justify-content: space-evenly;
+     }
+ } */

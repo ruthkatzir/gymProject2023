@@ -16,6 +16,7 @@ import RedBar from './updateMeasurments';
 import ListParticipation from './listPaticipation';
 import { useState, useEffect } from 'react';
 import Main from './mainSideBar';
+import Graph from '../graph';
 
 const drawerWidth = 240;
 //new sidebar
@@ -61,6 +62,7 @@ export default function ClippedDrawer() {
         {view === -1 && <Main></Main>}
         {view === 0 && <ListParticipation></ListParticipation>}
         {view === 1 && <RedBar></RedBar>}
+        {view === 2 && <Graph></Graph>}
         {/* {view === 2 && <ListParticipation></ListParticipation>}
         {view === 3 && <ListParticipation></ListParticipation>} */}
       </Box>

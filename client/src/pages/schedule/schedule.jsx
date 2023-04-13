@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './schedule.css';
+import RecommendationsPopup from '../RecommentsPopup/schedulePopup';
 
 const Schedule = (props) => {
     const [rows1, setRows1] = useState([]);
@@ -22,7 +23,8 @@ const Schedule = (props) => {
             .catch((error) => console.error(error));
     }, []);
     return (
-        (<div className="schedule">
+        (<div className="schedule" style={{ width: '30%', height: '80vh' }}>
+            <RecommendationsPopup />
             {currentStep === 1 && <h2>Lessons</h2>}
             {currentStep === 1 &&
                 <table id='1'>

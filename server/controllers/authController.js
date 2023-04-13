@@ -35,6 +35,7 @@ const login = async (req, res) => {
 const register = async (req, res) => {
     console.log("rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr");
     const { gmail, firstName, lastName, phoneNum, password, ImgPath, DateOfBirth, roles } = req.body;
+    console.log(gmail, firstName, lastName, phoneNum, password, ImgPath, DateOfBirth);
     if (!gmail || !firstName || !password || !lastName || !ImgPath || !DateOfBirth) // Confirm data
         return res.status(400).json({ message: 'All fields are required' })
     const duplicate = await User.findOne({ where: { gmail: gmail } })

@@ -303,7 +303,7 @@ export default function Signup() {
     const [password, setPassword] = useState('');
     const [passwordVerify, setPasswordVerify] = useState('');
     const [err, setErr] = useState(null);
-    const [picture, setPicture] = useState('');
+    const [picture, setPicture] = useState('../');
     const [phone, setPhone] = useState('');
 
     const isStepOptional = (step) => {
@@ -365,7 +365,7 @@ export default function Signup() {
     };
 
     return (
-        <Box sx={{ width: '100%', backgroundColor: 'write', color: 'red' }}>
+        <Box sx={{ width: '100%', backgroundColor: 'white', color: 'red' }}>
             <Stepper activeStep={activeStep}>
                 {steps.map((label, index) => {
                     const stepProps = {};
