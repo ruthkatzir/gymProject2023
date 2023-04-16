@@ -1,51 +1,61 @@
-// import FirstGraph from './first';
-// //change to real data
-// const Graph = () => {
-//     const data = [
-//         { name: 'Jan', value: 10 },
-//         { name: 'Feb', value: 20 },
-//         { name: 'Mar', value: 15 },
-//         { name: 'Apr', value: 25 },
-//         { name: 'May', value: 30 },
-//         { name: 'Jun', value: 20 },
-//     ];
-//     return (
-//         <>
-//             <FirstGraph data={data} />
-//             <FirstGraph data={data} />
-//             <FirstGraph data={data} />
-//             <FirstGraph data={data} />
-//         </>
-//     );
-// }
-
-// export default Graph;
-
 import FirstGraph from './first';
+import axios from 'axios';
+import { useContext, useState, useEffect } from 'react';
+import { AuthContext } from '../../context/authContext';
+
 
 const Graph = () => {
-    const data = [
-        { name: 'Jan', value: 10 },
-        { name: 'Feb', value: 20 },
-        { name: 'Mar', value: 15 },
-        { name: 'Apr', value: 25 },
-        { name: 'May', value: 30 },
-        { name: 'Jun', value: 20 },
-    ];
+    const [userMeasurements, setUserMeasurements] = useState([]);
+    const { currentUser, token } = useContext(AuthContext);
+    useEffect(() => {
+        loadData();
+    }, []);
+
+    const loadData = async () => {
+        const config = {
+            headers: { Authorization: `Bearer ${token}` }
+        };
+        const res = await axios.get(`http://localhost:3600/api/measurements/${currentUser.gmail}`, config).catch(error => console.error(error));
+        if (res.statusText == 'OK') {
+            setUserMeasurements(res.data);
+            console.log(res.data);
+        }
+    }
+
+    var data1 = [];
+    userMeasurements.forEach(e => {
+        data1.push({ name: e.measureDate, value: e.WaistCircumference });
+    })
+
+    var data2 = [];
+    userMeasurements.forEach(e => {
+        data2.push({ name: e.measureDate, value: e.HipCircumference });
+    })
+
+    var data3 = [];
+    userMeasurements.forEach(e => {
+        var BMI = e.weight / (e.height * e.height);
+        data3.push({ name: e.measureDate, value: BMI });
+    })
+
 
     return (
         <div style={{ display: 'flex', flexWrap: 'wrap' }}>
             <div style={{ flex: 1 }}>
-                <FirstGraph data={data} />
+                <h4>היקף ירכיים</h4>
+                <FirstGraph data={data1} />
             </div>
             <div style={{ flex: 1 }}>
-                <FirstGraph data={data} />
+                <h4>היקף מותניים</h4>
+                <FirstGraph data={data2} />
             </div>
             <div style={{ flex: 1 }}>
-                <FirstGraph data={data} />
+                <h4>BMI</h4>
+                <FirstGraph data={data3} />
             </div>
             <div style={{ flex: 1 }}>
-                <FirstGraph data={data} />
+                <h4>השתתפויות</h4>
+                <h5>חסר</h5>
             </div>
         </div>
     );

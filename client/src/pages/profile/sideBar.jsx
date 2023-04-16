@@ -10,8 +10,10 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
+import PlaylistAddCheckIcon from '@mui/icons-material/PlaylistAddCheck';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
+import PinchIcon from '@mui/icons-material/Pinch';
 import RedBar from './updateMeasurments';
 import ListParticipation from './listPaticipation';
 import { useState, useEffect } from 'react';
@@ -46,7 +48,7 @@ export default function ClippedDrawer() {
               <ListItem key={text} disablePadding>
                 <ListItemButton onClick={() => { setView(index) }}>
                   <ListItemIcon>
-                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                    {index % 2 === 0 ? <PlaylistAddCheckIcon /> : <PinchIcon />}
                   </ListItemIcon>
                   <ListItemText primary={text} />
                 </ListItemButton>

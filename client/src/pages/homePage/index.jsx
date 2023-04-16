@@ -251,8 +251,8 @@ import CardContent from '@material-ui/core/CardContent';
 import Grid from '@material-ui/core/Grid';
 import RecommendationsPopup from '../RecommentsPopup';
 
-import img1 from '../../images/1.JPG';
-import img2 from '../../images/2.JPG';
+import img1 from '../../images/7.jpg';
+import img2 from '../../images/8.jpg';
 
 const useStyles = makeStyles((theme) => ({
     root: {

@@ -56,6 +56,8 @@ export default function BasicCard(props) {
                 <CardMedia
                     component="img"
                      height="300"
+                    //  backgroundSize= 'cover'
+                    //  backgroundPosition= 'center 40%'
                     // width="10"
                     //src={'./1.jpg'}
                      image={img}
