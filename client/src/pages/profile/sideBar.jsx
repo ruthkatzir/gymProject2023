@@ -25,8 +25,6 @@ const drawerWidth = 240;
 export default function ClippedDrawer() {
 
   const [view, setView] = useState(-1);
-
-
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />

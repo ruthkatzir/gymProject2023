@@ -23,11 +23,11 @@ const Schedule = (props) => {
             .catch((error) => console.error(error));
     }, []);
     return (
-        (<div className="schedule" style={{ width: '30%', height: '80vh' }}>
+        (<div className="schedule" style={{ width: '30%', height: '300px' }}>
             <RecommendationsPopup />
             {currentStep === 1 && <h2>Lessons</h2>}
             {currentStep === 1 &&
-                <table id='1'>
+                <table id='1' style={{maxHeight:'300px'}}>
                     <thead>
                         <tr>
                             <th></th>

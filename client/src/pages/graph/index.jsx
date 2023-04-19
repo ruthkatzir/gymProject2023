@@ -2,7 +2,7 @@ import FirstGraph from './first';
 import axios from 'axios';
 import { useContext, useState, useEffect } from 'react';
 import { AuthContext } from '../../context/authContext';
-
+import BarParticipations from './bar';
 
 const Graph = () => {
     const [userMeasurements, setUserMeasurements] = useState([]);
@@ -55,7 +55,7 @@ const Graph = () => {
             </div>
             <div style={{ flex: 1 }}>
                 <h4>השתתפויות</h4>
-                <h5>חסר</h5>
+                <BarParticipations></BarParticipations>
             </div>
         </div>
     );

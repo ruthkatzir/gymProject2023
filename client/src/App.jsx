@@ -9,26 +9,22 @@ import Profile from './pages/profile';
 import ResponsiveAppBar from './pages/navBar';
 import Home from './pages/homePage';
 import Secretery from '../src/pages/Admin/index';
+import Regulations from '../src/pages/bottomBar/regrulations';
+import GymBranchList from '../src/pages/bottomBar/branches';
+import AccessibilityStatement from '../src/pages/bottomBar/accessibility';
+import Footer from '../src/pages/footer';
 import { AuthContext, AuthContextProvider } from './context/authContext';
 
 function App() {
   return (
     <div className="App">
       <AuthContextProvider>
-        {/* <ThemeProvider theme={theme} > */}
         <ResponsiveAppBar></ResponsiveAppBar>
-        {/* <AppBar/> */}
         <Router>
-          {/* <nav className='main-nav'>
-          <NavLink to="/profile">Profile </NavLink>
-          <NavLink to="/Prices">מחירון </NavLink>
-          <NavLink to="/Schedule">מערכת </NavLink>
-          <NavLink to="/signUp">הרשמה </NavLink>
-          <NavLink to="/signIn">כניסה </NavLink>
-          <NavLink to="/">דף הבית</NavLink>
-        </nav> */}
           <Routes>
-            {/* <Route path='/' element={<Home />} /> */}
+            <Route path='accessibilityStatement' element={<AccessibilityStatement></AccessibilityStatement>} />
+            <Route path='gymBranchList' element={<GymBranchList></GymBranchList>} />
+            <Route path='regulations' element={<Regulations></Regulations>} />
             <Route path='secretery' element={<Secretery></Secretery>} />
             <Route path='profile' element={<Profile></Profile>} />
             <Route path='Prices' element={<Prices></Prices>} />
@@ -38,11 +34,8 @@ function App() {
             <Route path='/homePage' element={<Home></Home>} />
             <Route path='*' element={<h1> 404 Page not found</h1>} />
           </Routes>
-          {/* <nav className='button-nav'>
-            <NavLink to="/">דף הבית</NavLink>
-          </nav> */}
         </Router>
-        {/* </ThemeProvider> */}
+        <Footer></Footer>
       </AuthContextProvider>
     </div>
   );

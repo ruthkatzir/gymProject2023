@@ -43,10 +43,10 @@ export default function PaginationControlled() {
   return (
     <>
       <br />
-      <div className="schedule-container" style={{ width: '50%', height: '50%' }}>
+      <div className="schedule-container" style={{ width: '50%', height: '600px' }}>
         <Schedule page={page}></Schedule>
       </div>
-      <Stack className="pagination-container" spacing={1} style={{ width: '20%', height: '20%', marginTop: '0%' }}>
+      <Stack className="pagination-container" spacing={1} style={{ width: '20%', height: '20%', marginTop: '0%', marginBottom: '5%' }}>
         <Pagination count={3} page={page} onChange={handleChange} />
       </Stack>
     </>
