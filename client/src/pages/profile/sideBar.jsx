@@ -15,13 +15,13 @@ import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import PinchIcon from '@mui/icons-material/Pinch';
 import RedBar from './updateMeasurments';
-import ListParticipation from './listPaticipation';
+import ListParticipation from './participation/listPaticipation';
+import Recommendations from './Recommendations';
 import { useState, useEffect } from 'react';
 import Main from './mainSideBar';
 import Graph from '../graph';
 
 const drawerWidth = 240;
-//new sidebar
 export default function ClippedDrawer() {
 
   const [view, setView] = useState(-1);
@@ -42,7 +42,7 @@ export default function ClippedDrawer() {
         <br />
         <Box sx={{ overflow: 'auto' }}>
           <List>
-            {['participation', 'Progress tracking','personal status' ,'personal work plan'].map((text, index) => (
+            {['participation', 'Progress tracking', 'personal status', 'personal work plan'].map((text, index) => (
               <ListItem key={text} disablePadding>
                 <ListItemButton onClick={() => { setView(index) }}>
                   <ListItemIcon>
@@ -63,8 +63,7 @@ export default function ClippedDrawer() {
         {view === 0 && <ListParticipation></ListParticipation>}
         {view === 1 && <RedBar></RedBar>}
         {view === 2 && <Graph></Graph>}
-        {/* {view === 2 && <ListParticipation></ListParticipation>}
-        {view === 3 && <ListParticipation></ListParticipation>} */}
+        {view === 3 && <Recommendations></Recommendations>}
       </Box>
     </Box>
   );

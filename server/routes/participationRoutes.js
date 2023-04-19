@@ -6,8 +6,9 @@ router.use(verifyJWT)
 router.route('/')
     .get(participationController.getAllParticipations)
     .post(participationController.createParticipation)
-    .put(participationController.updateLastParticipation)
+    // .put(participationController.updateLastParticipation)
 
 router.route('/:id')
     .get(participationController.getAllParticipationByMemberId)
+    .post(participationController.updateGradingByParticipationId)
 module.exports = router

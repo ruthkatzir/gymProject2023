@@ -48,8 +48,7 @@ import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
 import Measurment from './updateMeasurments';
 import RedBar from './updateMeasurments';
 import ClippedDrawer from './sideBar';
-import ListParticipation from './listPaticipation'
-import Participation   from './participation'
+
 const drawerWidth = 400;
 
 export default function Profile() {
