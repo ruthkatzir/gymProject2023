@@ -433,16 +433,17 @@
 import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
+// import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import Grid from '@material-ui/core/Grid';
-import RecommendationsPopup from '../RecommentsPopup';
+// import RecommendationsPopup from '../RecommentsPopup';
 import ReactPlayer from 'react-player';
 
-import homeImg from '../../images/homeImg.jpeg';
-import movie from '../../images/2.mp4'
+// import homeImg from '../../images/homeImg.jpeg';
+// import movie from '../../images/2.mp4';
+import home from '../../images/home.mp4';
 import img1 from '../../images/1.jpg';
 import img2 from '../../images/2.jpg';
 import img3 from '../../images/3.jpg';
@@ -460,10 +461,12 @@ const useStyles = makeStyles((theme) => ({
     },
     heroContent: {
         padding: theme.spacing(8, 0, 6),
-        backgroundImage: `url(${homeImg})`,
+        // backgroundImage: `url(${homeImg})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        minHeight: '400px',
+        minHeight: '80vh',
+        // maxHeight:'10%',
+        // maxWidth: '10%',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
@@ -525,16 +528,25 @@ const Home = () => {
 
     return (
         <div className={classes.root} style={{ marginTop: '4.5pc' }}>
-            <div className={classes.heroContent}>
-                <div>
+            {<div className={classes.heroContent}>
+                <ReactPlayer
+                    url={home}
+                    playing={true}
+                    loop={true}
+                    muted={true}
+                    width="100%"
+                    height="100%"
+                    style={{ position: 'absolute' }}
+                />
+                {/* <div>
                     <Typography variant="h1" className={classes.heroTitle}>
                         Get Fit with My Gym
                     </Typography>
                     <Typography variant="h3" className={classes.heroSubtitle}>
                         The Best Gym in Town
                     </Typography>
-                </div>
-            </div>
+                </div> */}
+            </div>}
 
             <Grid container justify="center" style={{ marginBottom: '6%' }}>
                 <Card className={classes.card} style={{ maxWidth: '60%' }}>
@@ -560,7 +572,7 @@ const Home = () => {
                         </Typography>
                     </CardContent>
                 </Card>
-                <Card className={classes.card}>
+                {/* <Card className={classes.card}>
                     <ReactPlayer
                         url={movie}
                         playing={true}
@@ -576,7 +588,7 @@ const Home = () => {
                     </Typography>
                     <Typography variant="body2" color="textSecondary" component="p">
                     </Typography>
-                </CardContent>
+                </CardContent> */}
             </Grid>
         </div>
     );

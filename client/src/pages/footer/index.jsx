@@ -31,6 +31,9 @@ export default function Footer() {
     window.location.href = path;
   }
 
+  if (window.location.pathname === '/enterAi' ||window.location.pathname === '/Secretary' ) {
+    return null;
+}
   const footerClass = expanded ? 'expanded' : ''; // add class based on state
 
   return (

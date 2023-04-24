@@ -55,13 +55,14 @@ class schedulesController {
         const time = req.body.time;
         const activeNow = await scheduleDal.getAllactiveSchedule(day, time);
         const promises = activeNow.map(async (e) => {
-            var tmpLesson = e.LessonType;
+            var tmpLesson = e.LessonType ? e.LessonType : null;
             e.LessonType = await lessonDal.getLessonName(tmpLesson);
+            e.ActiveType = await activeTypeDal.getActiveTypeName(e.ActiveType);
         });
         await Promise.all(promises);
+        console.log(activeNow);
         res.json(activeNow);
     };
-
 }
 const scheduleController = new schedulesController();
 module.exports = scheduleController;

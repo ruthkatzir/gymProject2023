@@ -14,7 +14,7 @@ class SchedulesDataAccessor {
     getAllactiveSchedule = async (day, time) => {
         const schedule = await Schedule.findAll({
             where: { DayOfWeek: day },
-            attributes: ['StartHour', 'LessonType', 'guiedId']
+            attributes: ['StartHour', 'LessonType', 'guiedId', 'ActiveType']
         });
         const [Th, Tm, Ts] = time.split(':').map(Number);
         const activeNow = schedule.filter(e => {
@@ -33,14 +33,14 @@ class SchedulesDataAccessor {
         return active;
     }
 
-// delete active from the schedule
-daleteActiveFromSchedule = async (_id) => {
-    await Schedule.destroy({
-        where: {
-            id: _id
-        }
-    });
-}
+    // delete active from the schedule
+    daleteActiveFromSchedule = async (_id) => {
+        await Schedule.destroy({
+            where: {
+                id: _id
+            }
+        });
+    }
 }
 const ScheduledataAccessor = new SchedulesDataAccessor();
 module.exports = ScheduledataAccessor;

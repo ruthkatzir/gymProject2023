@@ -13,6 +13,7 @@ import Regulations from '../src/pages/bottomBar/regrulations';
 import GymBranchList from '../src/pages/bottomBar/branches';
 import AccessibilityStatement from '../src/pages/bottomBar/accessibility';
 import Footer from '../src/pages/footer';
+import Main from '../src/pages/AI';
 import { AuthContext, AuthContextProvider } from './context/authContext';
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
             <Route path='accessibilityStatement' element={<AccessibilityStatement></AccessibilityStatement>} />
             <Route path='gymBranchList' element={<GymBranchList></GymBranchList>} />
             <Route path='regulations' element={<Regulations></Regulations>} />
+            <Route path='enterAi' element={<Main></Main>} />
             <Route path='secretery' element={<Secretery></Secretery>} />
             <Route path='profile' element={<Profile></Profile>} />
             <Route path='Prices' element={<Prices></Prices>} />
