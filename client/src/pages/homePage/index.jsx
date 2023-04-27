@@ -440,7 +440,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Grid from '@material-ui/core/Grid';
 // import RecommendationsPopup from '../RecommentsPopup';
 import ReactPlayer from 'react-player';
-
+import StickyHeadTable from './try';
 // import homeImg from '../../images/homeImg.jpeg';
 // import movie from '../../images/2.mp4';
 import home from '../../images/home.mp4';
@@ -487,12 +487,13 @@ const useStyles = makeStyles((theme) => ({
         textShadow: '1px 1px 2px rgba(0,0,0,0.6)',
     },
     card: {
-        maxWidth: 500, // update the maxWidth here
+        minWidth: '50%',
+        // maxWidth: 500, // update the maxWidth here
         margin: theme.spacing(2),
     },
     media: {
         height: 0,
-        paddingTop: '56.25%', // 16:9
+        paddingTop: '56.25%',
     },
     cardContent: {
         flexGrow: 1,
@@ -527,7 +528,7 @@ const Home = () => {
     }, [heroImage]);
 
     return (
-        <div className={classes.root} style={{ marginTop: '4.5pc' }}>
+        <div className={classes.root} style={{ marginTop: '0.6pc' }}>
             {<div className={classes.heroContent}>
                 <ReactPlayer
                     url={home}
@@ -536,20 +537,12 @@ const Home = () => {
                     muted={true}
                     width="100%"
                     height="100%"
-                    style={{ position: 'absolute' }}
+                // style={{ position: 'absolute' }}
                 />
-                {/* <div>
-                    <Typography variant="h1" className={classes.heroTitle}>
-                        Get Fit with My Gym
-                    </Typography>
-                    <Typography variant="h3" className={classes.heroSubtitle}>
-                        The Best Gym in Town
-                    </Typography>
-                </div> */}
             </div>}
 
-            <Grid container justify="center" style={{ marginBottom: '6%' }}>
-                <Card className={classes.card} style={{ maxWidth: '60%' }}>
+            <Grid container justify="center" style={{ marginBottom: '10%', marginTop: '5%' }}>
+                <Card className={classes.card} style={{ maxWidth: '100%' }}>
                     <CardMedia
                         className={classes.media}
                         image={
@@ -589,6 +582,7 @@ const Home = () => {
                     <Typography variant="body2" color="textSecondary" component="p">
                     </Typography>
                 </CardContent> */}
+                {/* <StickyHeadTable></StickyHeadTable> */}
             </Grid>
         </div>
     );

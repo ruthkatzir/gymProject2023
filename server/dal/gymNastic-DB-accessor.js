@@ -11,8 +11,11 @@ class gymNasticDataAccessor {
 
     //get exercise by id
     getOnegymNastic = async (_id) => {
+        console.log(_id);
         const gymnastic = await gymNastic.findByPk(_id);
-        var l= gymnastic.dataValues['Name'];
+        console.log("gymnastic " +gymnastic);
+        // console.log("aaaaaaaaa "+gymnastic.Name);
+        var l= gymnastic? gymnastic.dataValues.Name:  null;
         return l;
     }
 }

@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './schedule.css';
 import RecommendationsPopup from '../RecommentsPopup/schedulePopup';
+import PoolIcon from '@mui/icons-material/Pool';
+import SportsMartialArtsIcon from '@mui/icons-material/SportsMartialArts';
 
 const Schedule = (props) => {
     const [rows1, setRows1] = useState([]);
@@ -27,7 +29,7 @@ const Schedule = (props) => {
             <RecommendationsPopup />
             {currentStep === 1 && <h2>Lessons</h2>}
             {currentStep === 1 &&
-                <table id='1' style={{maxHeight:'300px'}}>
+                <table id='1' style={{ maxHeight: '300px' }}>
                     <thead>
                         <tr>
                             <th></th>
@@ -77,12 +79,12 @@ const Schedule = (props) => {
                             return (
                                 <tr key={hour}>
                                     <td>{hour}:00:00</td>
-                                    <td>{rows2.find(row => row.DayOfWeek === 1 && row.StartHour.startsWith(`${hour}:`))?.LessonType}</td>
-                                    <td>{rows2.find(row => row.DayOfWeek === 2 && row.StartHour.startsWith(`${hour}:`))?.LessonType}</td>
-                                    <td>{rows2.find(row => row.DayOfWeek === 3 && row.StartHour.startsWith(`${hour}:`))?.LessonType}</td>
-                                    <td>{rows2.find(row => row.DayOfWeek === 4 && row.StartHour.startsWith(`${hour}:`))?.LessonType}</td>
-                                    <td>{rows2.find(row => row.DayOfWeek === 5 && row.StartHour.startsWith(`${hour}:`))?.LessonType}</td>
-                                    <td>{rows2.find(row => row.DayOfWeek === 6 && row.StartHour.startsWith(`${hour}:`))?.LessonType}</td>
+                                    <td>{rows2.find(row => row.DayOfWeek === 1 && row.StartHour.startsWith(`${hour}:`)) ? <SportsMartialArtsIcon /> : <></>}</td>
+                                    <td>{rows2.find(row => row.DayOfWeek === 2 && row.StartHour.startsWith(`${hour}:`)) ? <SportsMartialArtsIcon /> : <></>}</td>
+                                    <td>{rows2.find(row => row.DayOfWeek === 3 && row.StartHour.startsWith(`${hour}:`)) ? <SportsMartialArtsIcon /> : <></>}</td>
+                                    <td>{rows2.find(row => row.DayOfWeek === 4 && row.StartHour.startsWith(`${hour}:`)) ? <SportsMartialArtsIcon /> : <></>}</td>
+                                    <td>{rows2.find(row => row.DayOfWeek === 5 && row.StartHour.startsWith(`${hour}:`)) ? <SportsMartialArtsIcon /> : <></>}</td>
+                                    <td>{rows2.find(row => row.DayOfWeek === 6 && row.StartHour.startsWith(`${hour}:`)) ? <SportsMartialArtsIcon /> : <></>}</td>
                                 </tr>
                             )
                         })}
@@ -108,12 +110,12 @@ const Schedule = (props) => {
                             return (
                                 <tr key={hour}>
                                     <td>{hour}:00:00</td>
-                                    <td>{rows3.find(row => row.DayOfWeek === 1 && row.StartHour.startsWith(`${hour}:`))?.LessonType}</td>
-                                    <td>{rows3.find(row => row.DayOfWeek === 2 && row.StartHour.startsWith(`${hour}:`))?.LessonType}</td>
-                                    <td>{rows3.find(row => row.DayOfWeek === 3 && row.StartHour.startsWith(`${hour}:`))?.LessonType}</td>
-                                    <td>{rows3.find(row => row.DayOfWeek === 4 && row.StartHour.startsWith(`${hour}:`))?.LessonType}</td>
-                                    <td>{rows3.find(row => row.DayOfWeek === 5 && row.StartHour.startsWith(`${hour}:`))?.LessonType}</td>
-                                    <td>{rows3.find(row => row.DayOfWeek === 6 && row.StartHour.startsWith(`${hour}:`))?.LessonType}</td>
+                                    <td>{rows3.find(row => row.DayOfWeek === 1 && row.StartHour.startsWith(`${hour}:`)) ? <PoolIcon /> : <></>}</td>
+                                    <td>{rows3.find(row => row.DayOfWeek === 2 && row.StartHour.startsWith(`${hour}:`)) ? <PoolIcon /> : <></>}</td>
+                                    <td>{rows3.find(row => row.DayOfWeek === 3 && row.StartHour.startsWith(`${hour}:`)) ? <PoolIcon /> : <></>}</td>
+                                    <td>{rows3.find(row => row.DayOfWeek === 4 && row.StartHour.startsWith(`${hour}:`)) ? <PoolIcon /> : <></>}</td>
+                                    <td>{rows3.find(row => row.DayOfWeek === 5 && row.StartHour.startsWith(`${hour}:`)) ? <PoolIcon /> : <></>}</td>
+                                    <td>{rows3.find(row => row.DayOfWeek === 6 && row.StartHour.startsWith(`${hour}:`)) ? <PoolIcon /> : <></>}</td>
                                 </tr>
                             )
                         })}

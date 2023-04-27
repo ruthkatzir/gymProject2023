@@ -4,88 +4,92 @@ import Button from '@mui/joy/Button';
 import Divider from '@mui/joy/Divider';
 import Modal from '@mui/joy/Modal';
 import ModalDialog from '@mui/joy/ModalDialog';
-import DeleteForever from '@mui/icons-material/DeleteForever';
-import WarningRoundedIcon from '@mui/icons-material/WarningRounded';
 import Typography from '@mui/joy/Typography';
 import StarOutlineIcon from '@mui/icons-material/StarOutline';
-import StarBorderIcon from '@mui/icons-material/StarBorder';
 import GradeIcon from '@mui/icons-material/Grade';
 import Rating from '@mui/material/Rating';
-import { useContext, useState, useEffect } from 'react';
+import { useContext } from 'react';
 import { AuthContext } from '../../../context/authContext';
-
 import axios from 'axios';
 
 export default function Rate(props) {
     const [open, setOpen] = React.useState(false);
     const [rating, setRating] = React.useState(0);
     const { currentUser, token } = useContext(AuthContext);
-    
+
     const Rate = async () => {
         const config = {
             headers: { Authorization: `Bearer ${token}` }
-           
         };
-        const data={ memberId: currentUser.gmail, grading: rating }
-        const res = await axios.post(`http://localhost:3600/api/participations/${props.participationId}`,{grading: rating },config 
+        const res = await axios.post(`http://localhost:3600/api/participations/${props.participationId}`,
+            { grading: rating },
+            config
         ).catch(error => console.error(error));
-        console.log(res)
+        console.log(res);
+    };
 
-
-    }
-
-    
     return (
         <React.Fragment>
-            <Box sx={{ display: 'flex', gap: 1, justifyContent: 'flex-end', pt: 2 }}>
-
-                <Button endIcon={<StarOutlineIcon></StarOutlineIcon>}
-                    variant="plain" color="neutral"
-                    // endDecorator={<DeleteForever />}
+            <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', pt: 2 }}>
+                <Button
+                    variant="plain"
+                    color="neutral"
+                    endIcon={<StarOutlineIcon />}
                     onClick={() => setOpen(true)}
                 >
                     Rate
                 </Button>
-            </Box>
-            <Modal open={open} onClose={() => setOpen(false)}>
-                <ModalDialog
-                    variant="outlined"
-                    role="alertdialog"
-                    aria-labelledby="alert-dialog-modal-title"
-                    aria-describedby="alert-dialog-modal-description"
-                >
-
-                    <Typography
-                        id="alert-dialog-modal-title"
-                        component="h2"
-                        startDecorator={<GradeIcon />}
+                <Modal open={open} onClose={() => setOpen(false)}>
+                    <ModalDialog
+                        variant="outlined"
+                        role="alertdialog"
+                        aria-labelledby="alert-dialog-modal-title"
+                        aria-describedby="alert-dialog-modal-description"
                     >
-                        Rating
-                    </Typography>
-                    <Divider />
-                    <Rating
-                        name="simple-controlled"
-                        value={rating}
-                        onChange={(event, newValue) => {
-                            setRating(newValue);
-                        }} />
-
-
-                    <Box sx={{ display: 'flex', gap: 1, justifyContent: 'flex-end', pt: 2 }}>
-                        <Button variant="plain" color="neutral" onClick={() => setOpen(false)}>
-                            Cancel
-                        </Button>
-                        <Button variant="solid" color="success" onClick={() => {
-                            setOpen(false)
-                            Rate();
-                        }
-
-                        }>
-                            Rate
-                        </Button>
-                    </Box>
-                </ModalDialog>
-            </Modal>
+                        <Typography
+                            id="alert-dialog-modal-title"
+                            component="h2"
+                            startDecorator={<GradeIcon />}
+                        >
+                            Rating
+                        </Typography>
+                        <Divider />
+                        <Rating
+                            name="simple-controlled"
+                            value={rating}
+                            onChange={(event, newValue) => {
+                                setRating(newValue);
+                            }}
+                        />
+                        <Box
+                            sx={{
+                                display: 'flex',
+                                justifyContent: 'flex-end',
+                                pt: 2,
+                                gap: 1,
+                            }}
+                        >
+                            <Button
+                                variant="plain"
+                                color="neutral"
+                                onClick={() => setOpen(false)}
+                            >
+                                Cancel
+                            </Button>
+                            <Button
+                                variant="solid"
+                                color="success"
+                                onClick={() => {
+                                    setOpen(false);
+                                    Rate();
+                                }}
+                            >
+                                Rate
+                            </Button>
+                        </Box>
+                    </ModalDialog>
+                </Modal>
+            </Box>
         </React.Fragment>
     );
 }

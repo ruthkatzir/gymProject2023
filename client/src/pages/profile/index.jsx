@@ -29,7 +29,7 @@
 //     </>
 //   )
 // }
-import * as React from 'react';
+
 // import Box from '@mui/material/Box';
 // import Drawer from '@mui/material/Drawer';
 // import AppBar from '@mui/material/AppBar';
@@ -47,16 +47,29 @@ import * as React from 'react';
 // import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
 // import Measurment from './updateMeasurments';
 // import RedBar from './updateMeasurments';
-import ClippedDrawer from './sideBar';
+
 
 // const drawerWidth = 400;
+
+// import * as React from 'react';
+// export default function Profile() {
+//   return (
+//     <>
+//       <br></br><br></br>
+//       <ClippedDrawer></ClippedDrawer>
+//     </>
+//   )
+// }
+
+import * as React from 'react';
+import ClippedDrawer from './sideBar';
 
 export default function Profile() {
   return (
     <>
-  
-<><h1></h1></><br></br><br></br>
-      <ClippedDrawer></ClippedDrawer> 
+      <br />
+      <br />
+      <ClippedDrawer />
     </>
-  )
+  );
 }

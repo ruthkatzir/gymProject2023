@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
     },
     media: {
         height: '30vh',
-        width: '65vh'
+        width: '100%'
     },
 }));
 
@@ -26,39 +26,35 @@ const WideTitleCard = ({ cardTitle, cardText, cardImgSrc, onClick, cardType }) =
 
     return (
         <Card style={{ marginTop: '3%', marginBottom: '5%', width: '100%' }}>
-            <Grid container>
-                <Grid item xs={12}>
-                    <CardActionArea
-                        onClick={onClick}
-                        style={{ backgroundColor: "#e86262", height: "100%", width: "100%" }}
-                    >
-                        <Grid container style={{ height: "100%", width: "100%" }}>
-                            <Grid item xs={8}>
-                                <CardMedia
-                                    className={classes.media}
-                                    image={cardImgSrc === 'pool' ? pool : cardImgSrc === 'gym' ?gym : lesson}
-                                    title={cardTitle}
-                                />
-                            </Grid>
-                            <Grid item xs={4} style={{ display: 'flex', flexDirection: 'column', justifyContent: 'left' }}>
-                                <CardContent>
-                                    <Typography gutterBottom variant="h5" component="h2">
-                                        {cardTitle}
-                                    </Typography>
-                                    <Typography gutterBottom variant="h5" component="h2">
-                                        {cardText}
-                                    </Typography>
-                                    {cardType !== 'lessons' &&
-                                        <Typography gutterBottom variant="h5" component="h2">
-                                            {cardType}
-                                        </Typography>
-                                    }
-                                </CardContent>
-                            </Grid>
-                        </Grid>
-                    </CardActionArea>
+            <CardActionArea
+                onClick={onClick}
+                style={{ backgroundColor: "#e86262", height: "100%", width: "100%" }}
+            >
+                <Grid container>
+                    <Grid item xs={12} sm={8}>
+                        <CardMedia
+                            className={classes.media}
+                            image={cardImgSrc === 'pool' ? pool : cardImgSrc === 'gym' ? gym : lesson}
+                            title={cardTitle}
+                        />
+                    </Grid>
+                    <Grid item xs={12} sm={4} style={{ display: 'flex', flexDirection: 'column', justifyContent: 'left' }}>
+                        <CardContent>
+                            <Typography gutterBottom variant="h5" component="h2">
+                                {cardTitle}
+                            </Typography>
+                            <Typography gutterBottom variant="h5" component="h2">
+                                {cardText}
+                            </Typography>
+                            {cardType !== 'lessons' &&
+                                <Typography gutterBottom variant="h5" component="h2">
+                                    {cardType}
+                                </Typography>
+                            }
+                        </CardContent>
+                    </Grid>
                 </Grid>
-            </Grid>
+            </CardActionArea>
         </Card>
     );
 };

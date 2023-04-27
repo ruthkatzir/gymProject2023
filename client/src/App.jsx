@@ -33,6 +33,7 @@ function App() {
             <Route path='/signUp' element={<Signup></Signup>} />
             <Route path='/signIn' element={<SignIn></SignIn>} />
             <Route path='Schedule' element={<Schedule></Schedule>} />
+            <Route path='/' element={<Home></Home>} />
             <Route path='/homePage' element={<Home></Home>} />
             <Route path='*' element={<h1> 404 Page not found</h1>} />
           </Routes>

@@ -6,6 +6,7 @@ const email = require('../utils/email')
 // process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
 const login = async (req, res) => {
+    console.log("in loginnnnnnnnnnnnn");
     const { gmail, password } = req.body
     console.log(gmail, password);
     if (!gmail || !password) {

@@ -172,11 +172,13 @@ export default function SignIn() {
   const [err, setErr] = useState(null);
   const { login } = useContext(AuthContext);
 
+
   const handleLogin = async (e) => {
     try {
       await login({ email, password })
+      // console.log(res);
     } catch (err) {
-      setErr(err.response.data?.message);
+      setErr(err.response?.message);
     }
   };
 

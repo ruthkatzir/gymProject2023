@@ -42,29 +42,29 @@ class recommendationsController {
 
     getAllExercisesByPart = async (req, res) => {
         const partName = req.params.partName;
-        // console.log("ruth   " + partName);
+        console.log("ruth   " + partName);
         const partId1 = await bodyPartDal.getPartIdByPartName(partName);
         if (!partId1) {
             return res.status(400).json({ message: 'No part found' })
         }
         const partId = partId1.dataValues['id'];
-        //console.log("ruth   " + partId);
+        console.log("ruth   " + partId);
         const exerciseId = await exerciseToPartDal.getExercisByPart(partId);
         if (!exerciseId) {
             return res.status(400).json({ message: 'No lessons found' })
         }
         var exercises = [];
-       // console.log("aaaaaaaaaaa " + exerciseId.length);
+    //    console.log("aaaaaaaaaaa " + exerciseId.length);
         for (var e of exerciseId) {
-            // console.log("enter  " + e);
+            console.log("enter  " + e);
             var eId = e.dataValues['id'];
-            //console.log("enter  " + eId);
-            var exerciseName = await gymNasticDal.getOnegymNastic(eId);///gym...
+            console.log("enter  " + e.exerciseCode);
+            var exerciseName = await gymNasticDal.getOnegymNastic(e.exerciseCode);///gym...
             exercises.push(exerciseName);
-            // console.log("endddddddd 1111111111" + lessonName);
+            console.log("endddddddd 1111111111" + exerciseName);
         }
 
-        // console.log("endddddddd " + lessons);
+        console.log("endddddddd " + exercises);
         res.json(exercises);
     }
 }

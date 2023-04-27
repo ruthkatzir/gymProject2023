@@ -41,7 +41,6 @@ const PopupSignIn = () => {
             <div className="main">
               <input type="checkbox" id="chk" aria-hidden="true"></input>
               <SignIn></SignIn>
-
             </div>
           </Typography>
         </Box>

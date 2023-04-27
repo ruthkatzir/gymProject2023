@@ -38,9 +38,14 @@ function ResponsiveAppBar() {
     function navigateTo(path) {
         window.location.href = path;
     }
-    if (window.location.pathname === '/enterAi' ||window.location.pathname === '/Secretary' ) {
+
+    // if (currentUser.roles === 'USER') {
+    //     window.location.pathname = `/Secretery`;
+    // }
+    if (window.location.pathname === '/enterAi' || window.location.pathname === '/Secretary') {
         return null;
     }
+    //secretery
 
     return (
         <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }} style={{ backgroundColor: "black" }}>
