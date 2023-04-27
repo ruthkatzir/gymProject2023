@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useContext, useState, useEffect } from 'react';
 import Button from '@mui/joy/Button';
 import FormControl from '@mui/joy/FormControl';
 import FormLabel from '@mui/joy/FormLabel';
@@ -13,39 +14,59 @@ import SelectGuied from './SelectGuiedName';
 import axios from 'axios';
 
 export default function AddLessonButton(props) {
-    const [open, setOpen] = React.useState(false);
-    const [lessonType, setLessonType] = React.useState('');
-    const [guiedId, setGuiedId] = React.useState('');
-    const [show, setShow] = React.useState(false);
-    const [success, setSuccess] = React.useState(false);
-    
-    React.useEffect(
+    const [open, setOpen] = useState(false);
+    const [lessonTypeId, setLessonTypeId] = useState('');
+    const [guiedId, setGuiedId] = useState(1);
+    const [error, serError] = useState(false);
+
+    useEffect(
         () => {
-            console.log("lessonType", lessonType)
+            console.log("lessonType", lessonTypeId)
         }
-        , [lessonType])
-    React.useEffect(
+        , [lessonTypeId])
+    useEffect(
         () => {
             console.log("guiedId", guiedId)
         }
         , [guiedId])
 
     const addLesson = async () => {
-        if (guiedId == '' || lessonType == '') {
-            setShow(true)
-           
+    
+        
+        if (guiedId == '' || lessonTypeId == '') {
+            serError(true)
+            return;
         }
-        const data={ DayOfWeek:props.DayOfWeek ,StartHour:props.StartHour, LessonType:lessonType, guiedId,ActiveType:1 }
-        const res = await axios.post(`http://localhost:3600/api/lessons`,data
-        ).catch(error => console.error(error));
+        
+        const data = { DayOfWeek: props.DayOfWeek, StartHour: props.StartHour, lessonTypeId, guiedId, ActiveTypeId: 1 }
+        console.log(data)
+         let data1= {
+         
+
+                DayOfWeek: 1,
+                    StartHour: "8:00:00",
+                        LessonTypeId: 1,
+                            guiedId: "aaa",
+                                ActiveTypeId: 1
+    
+            }
+        const res = await axios.post(`http://localhost:3600/api/secretary`, data1).catch(error => console.error(error));
+    //
+        if(res.statusText='ok')
+          setOpen(false)
+           
         console.log(res)
         // {
-        //     "DayOfWeek":1, 
-        //     "StartHour":"8:00:00", 
-        //     "LessonTypeId":1, 
-        //     "guiedId":"aaa", 
-        //     "ActiveTypeId":1
-        //     }
+         
+
+        //     "DayOfWeek": 1,
+        //         "StartHour": "8:00:00",
+        //             "LessonTypeId": 1,
+        //                 "guiedId": "aaa",
+        //                     "ActiveTypeId": 1
+
+        // }
+   
     }
     return (
         <React.Fragment>
@@ -70,31 +91,30 @@ export default function AddLessonButton(props) {
                         Fill in the information of the lesson.
                     </Typography>
                     <form
-                        onSubmit={(event) => {
-                            event.preventDefault();
-                            setOpen(false);
-                        }}
-                    >
+                    //     onSubmit={(event) => {
+                    //         event.preventDefault();
+        
+                    //         addLesson()==true?setOpen(true):setOpen(false);
+                    //         // ;
+                    //     }}
+                      >
                         <Stack spacing={2}>
                             <FormControl>
                                 <FormLabel>Type of lesson</FormLabel>
-                                <SelectLesson setLessonType={setLessonType} ></SelectLesson>
+                                <SelectLesson setLessonTypeId={setLessonTypeId} ></SelectLesson>
                             </FormControl>
                             <FormControl>
                                 <FormLabel>Name of guied</FormLabel>
-                                <SelectGuied setGuiedId={setGuiedId}></SelectGuied>
+                                <SelectLesson setLessonTypeId={setLessonTypeId} ></SelectLesson>
+                                {/* <SelectGuied setGuiedId={setGuiedId}></SelectGuied> */}
                             </FormControl>
-                            <Button type="submit" onClick={() => {
-                                addLesson();
-                                setSuccess(true);
-                                //alert("the lesson added successully")
-                            }}>Submit</Button>
- {/* {success&&<Typography id="basic-modal-dialog-description" textColor="text.tertiary">
-                                All fields are required
-                            </Typography>} */}
-                            {success&&<Typography id="basic-modal-dialog-description" textColor="text.tertiary">
+                            {/* type="submit" */}
+                            <Button onClick={()=>{addLesson()}} >Submit</Button>
+     
+                            {error&&<Typography id="basic-modal-dialog-description" textColor="text.tertiary">
                                 All fields are required
                             </Typography>}
+                         
                         </Stack>
                     </form>
                 </ModalDialog>

@@ -64,7 +64,8 @@ const WeeklySchedule = () => {
                   {DAYS_OF_WEEK.map((day) => (
                     <TableCell key={day} onClick={() => handleCellClick(day, hour)}>
                      <betton >Add Lesson</betton>
-                    <AddLessonButton></AddLessonButton>
+                    <AddLessonButton    DayOfWeek={1}  StartHour={"8:00:00"} ></AddLessonButton>
+        //        
                       {/* <TextField
                         fullWidth
                         variant="outlined"

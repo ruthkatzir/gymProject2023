@@ -2,7 +2,7 @@ import Select from '@mui/joy/Select';
 import Option from '@mui/joy/Option';
 import { useEffect,useState } from 'react';
 import axios from 'axios';
-export default function SelectBasic(props) {
+export default function SelectLesson(props) {
   
   
 const [lessons,setLessons]=useState([]);
@@ -20,12 +20,8 @@ const loadData=async()=>{
    //;
   
     return (
-    <Select  onChange={(e,value)=>{props.setLessonType(value) }}  placeholder="Choose one…"   color="neutral">
+    <Select  onChange={(e,value)=>{props.setLessonTypeId(value) }}  placeholder="Choose one…"   color="neutral">
       { lessons.map((lesson)=><Option value={lesson.id}>{lesson.name}</Option>) }
-      {/* <Option value={1}>Zumba</Option>
-      <Option value="Pylatic">Pylatic</Option>
-      <Option value="junc">junc</Option>
-      <Option value="Sport">Sport</Option> */}
     </Select>
   );
 }
