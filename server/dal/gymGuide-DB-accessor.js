@@ -2,7 +2,16 @@ const db = require('../models/index')
 const gymGuide = db.gymGuides
 
 class gymGuidesDataAccessor {
+   //Get all guieds
+   getAllGuide = async (guideId) => {
+      const guide = await gymGuide.findAll({});
+      
+      return guide;
+   }
+   
    // Get Guide name by id
+   
+   
    getGuideNameById = async (guideId) => {
       const giude = await gymGuide.findOne({ guideId, attributes: ['firstName'] });
       var g = giude.dataValues['firstName'];

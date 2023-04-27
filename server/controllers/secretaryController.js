@@ -5,6 +5,15 @@ const activeDal = require("../dal/activeType-DB-accessor");
 const gymGuiedDal = require("../dal/gymGuide-DB-accessor");
 class secretaryController {
 
+
+    getAllGuieds = async (req, res) => {
+        const guieds = await gymGuiedDal.getAllGuide();
+        if(!guieds?.length){
+            return res.status(400).json({message: 'No guieds found'})
+        }
+        res.json(guieds)
+    }
+
     //add new activity to schedule
     createNewActivity = async (req, res) => {
         const { DayOfWeek, StartHour, LessonType, guied, ActiveType } = req.body
@@ -22,14 +31,14 @@ class secretaryController {
         }
         const activity = await scheduleDal.addActiveToSchedule(DayOfWeek, StartHour, LessonTypeId, guiedId, ActiveTypeId);
         if (activity) {
-            return res.status(201).json({activity});
+            return res.status(201).json({ activity });
         } else {
             return res.status(400).json({ message: 'Invalid activity data received' })
         }
     }
     // delete activity from schedule
     deleteActivity = async (req, res) => {
-        const _id  = req.params.id;
+        const _id = req.params.id;
         // Confirm data
         if (!_id) {
             return res.status(400).json({ message: 'activity ID required' })
