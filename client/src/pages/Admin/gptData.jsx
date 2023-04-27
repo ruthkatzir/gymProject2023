@@ -1,14 +1,19 @@
 import { useState } from 'react';
 import { Grid, Typography, TextField, Button, Table, TableContainer, TableHead, TableBody, TableRow, TableCell } from '@mui/material';
 import ConfirmationDialog from './popupSchedule';
+import AddLessonButton from './AddLessonButton';
 
 const DAYS_OF_WEEK = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
-const HOURS_OF_DAY = ['12 AM', '1 AM', '2 AM', '3 AM', '4 AM', '5 AM', '6 AM', '7 AM', '8 AM', '9 AM', '10 AM', '11 AM', '12 PM', '1 PM', '2 PM', '3 PM', '4 PM', '5 PM', '6 PM', '7 PM', '8 PM', '9 PM', '10 PM', '11 PM'];
+const HOURS_OF_DAY_1 = [ '9 AM', '10 AM', '11 AM', '12 PM', '1 PM', '2 PM', '3 PM', '4 PM', '5 PM', '6 PM', '7 PM', '8 PM', '9 PM', '10 PM', '11 PM'];
+
+const HOURS_OF_DAY = [ '8:00','9:00', '10:00', '11:00', '12:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00','22:00'];
+
+
 
 const WeeklySchedule = () => {
   const [schedule, setSchedule] = useState(() => {
-    const initialSchedule = {};
-    DAYS_OF_WEEK.forEach((day) => {
+  const initialSchedule = {};
+  DAYS_OF_WEEK.forEach((day) => {
       initialSchedule[day] = {};
       HOURS_OF_DAY.forEach((hour) => {
         initialSchedule[day][hour] = '';
@@ -16,7 +21,9 @@ const WeeklySchedule = () => {
     });
     return initialSchedule;
   });
-
+  const [day, setDay] = useState('');
+  const [hour, setHour] = useState('');
+  
   const handleScheduleChange = (day, hour, value) => {
     const updatedSchedule = { ...schedule };
     updatedSchedule[day][hour] = value;
@@ -56,12 +63,15 @@ const WeeklySchedule = () => {
                   <TableCell>{hour}</TableCell>
                   {DAYS_OF_WEEK.map((day) => (
                     <TableCell key={day} onClick={() => handleCellClick(day, hour)}>
-                      <TextField
+                     <betton >Add Lesson</betton>
+                    <AddLessonButton    DayOfWeek={1}  StartHour={"8:00:00"} ></AddLessonButton>
+        //        
+                      {/* <TextField
                         fullWidth
                         variant="outlined"
                         value={schedule[day][hour]}
                         onChange={(e) => handleScheduleChange(day, hour, e.target.value)}
-                      />
+                      /> */}
                     </TableCell>
                   ))}
                 </TableRow>

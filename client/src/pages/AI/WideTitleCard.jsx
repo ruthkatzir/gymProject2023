@@ -1,14 +1,14 @@
-import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Card from "@material-ui/core/Card";
-import CardActionArea from "@material-ui/core/CardActionArea";
-import CardMedia from "@material-ui/core/CardMedia";
-import CardContent from "@material-ui/core/CardContent";
-import Typography from "@material-ui/core/Typography";
-import Grid from "@material-ui/core/Grid";
-import pool from '../../images/pool.jpg';
-import gym from '../../images/gym1.jpg';
-import lesson from '../../images/lesson1.png';
+// import React from "react";
+// import { makeStyles } from "@material-ui/core/styles";
+// import Card from "@material-ui/core/Card";
+// import CardActionArea from "@material-ui/core/CardActionArea";
+// import CardMedia from "@material-ui/core/CardMedia";
+// import CardContent from "@material-ui/core/CardContent";
+// import Typography from "@material-ui/core/Typography";
+// import Grid from "@material-ui/core/Grid";
+// import pool from '../../images/pool.jpg';
+// import gym from '../../images/gym1.jpg';
+// import lesson from '../../images/lesson1.png';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -21,8 +21,8 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const WideTitleCard = ({ cardTitle, cardText, cardImgSrc, onClick, cardType }) => {
-    const classes = useStyles();
+// const WideTitleCard = ({ cardTitle, cardText, cardImgSrc, onClick, cardType }) => {
+//     const classes = useStyles();
 
     return (
         <Card style={{ marginTop: '3%', marginBottom: '5%', width: '100%' }}>
@@ -59,4 +59,4 @@ const WideTitleCard = ({ cardTitle, cardText, cardImgSrc, onClick, cardType }) =
     );
 };
 
-export default WideTitleCard;
+// export default WideTitleCard;
