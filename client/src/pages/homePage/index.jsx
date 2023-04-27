@@ -1,22 +1,16 @@
-
-
 import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import Grid from '@material-ui/core/Grid';
-// import RecommendationsPopup from '../RecommentsPopup';
 import ReactPlayer from 'react-player';
-
-// import homeImg from '../../images/homeImg.jpeg';
-// import movie from '../../images/2.mp4';
 import home from '../../images/home.mp4';
 import img1 from '../../images/1.jpg';
 import img2 from '../../images/2.jpg';
-import video from './video'
+import img3 from '../../images/3.jpg';
+import img4 from '../../images/9.jpg';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -30,14 +24,14 @@ const useStyles = makeStyles((theme) => ({
     },
     heroContent: {
         padding: theme.spacing(8, 0, 6),
-        backgroundImage: 'url(https://source.unsplash.com/collection/287876/1600x900)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        minHeight: '400px',
+        minHeight: '80vh',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
     },
+
     heroTitle: {
         color: '#fff',
         textAlign: 'center',
@@ -53,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
         textShadow: '1px 1px 2px rgba(0,0,0,0.6)',
     },
     card: {
-        maxWidth: 500, // update the maxWidth here
+        minWidth: '50%',
         margin: theme.spacing(2),
     },
     media: {
@@ -71,13 +65,29 @@ const Home = () => {
 
     useEffect(() => {
         const intervalId = setInterval(() => {
-            setHeroImage((prev) => prev === 1 ? 2 : 1);
+            switch (heroImage) {
+                case 1:
+                    setHeroImage(2);
+                    break;
+                case 2:
+                    setHeroImage(3);
+                    break;
+                case 3:
+                    setHeroImage(4);
+                    break;
+                case 4:
+                    setHeroImage(1);
+                    break;
+                default:
+                    setHeroImage(1);
+                    break;
+            }
         }, 5000);
         return () => clearInterval(intervalId);
-    }, []);
+    }, [heroImage]);
 
     return (
-        <div className={classes.root} style={{ marginTop: '4.5pc' }}>
+        <div className={classes.root} style={{ marginTop: '0.6pc' }}>
             {<div className={classes.heroContent}>
                 <ReactPlayer
                     url={home}
@@ -86,23 +96,23 @@ const Home = () => {
                     muted={true}
                     width="100%"
                     height="100%"
-                    style={{ position: 'absolute' }}
+                // style={{ position: 'absolute' }}
                 />
-                {/* <div>
-                    <Typography variant="h1" className={classes.heroTitle}>
-                        Get Fit with My Gym
-                    </Typography>
-                    <Typography variant="h3" className={classes.heroSubtitle}>
-                        The Best Gym in Town
-                    </Typography>
-                </div> */}
             </div>}
 
-            <Grid container justify="center" style={{ marginBottom: '6%' }}>
-                <Card className={classes.card} style={{ maxWidth: '60%' }}>
+            <Grid container justify="center" style={{ marginBottom: '10%', marginTop: '5%' }}>
+                <Card className={classes.card} style={{ maxWidth: '100%' }}>
                     <CardMedia
                         className={classes.media}
-                        image={img1}
+                        image={
+                            heroImage === 1
+                                ? img1
+                                : heroImage === 2
+                                    ? img2
+                                    : heroImage === 3
+                                        ? img3
+                                        : img4
+                        }
                         title="Personal Training"
                     />
                     <CardContent className={classes.cardContent}>
@@ -114,19 +124,6 @@ const Home = () => {
                         </Typography>
                     </CardContent>
                 </Card>
-                <Card className={classes.card}>
-                    <CardMedia
-                        className={classes.media}
-                        image={img2}
-                        title="Group Classes"
-                    />
-                </Card>
-                <CardContent className={classes.cardContent}>
-                    <Typography gutterBottom variant="h5" component="h2">
-                    </Typography>
-                    <Typography variant="body2" color="textSecondary" component="p">
-                    </Typography>
-                </CardContent> 
             </Grid>
         </div>
     );
