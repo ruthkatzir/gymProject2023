@@ -16,17 +16,19 @@ import Footer from '../src/pages/footer';
 import Main from '../src/pages/AI';
 import { AuthContext, AuthContextProvider } from './context/authContext';
 
+
+
 function App() {
   return (
     <div className="App">
       <AuthContextProvider>
-        <ResponsiveAppBar></ResponsiveAppBar>
+        <ResponsiveAppBar/>
         <Router>
           <Routes>
             <Route path='accessibilityStatement' element={<AccessibilityStatement></AccessibilityStatement>} />
             <Route path='gymBranchList' element={<GymBranchList></GymBranchList>} />
             <Route path='regulations' element={<Regulations></Regulations>} />
-            <Route path='enterAi' element={<Main></Main>} />
+            <Route path='enter-ai' element={<Main/>} />
             <Route path='secretery' element={<Secretery></Secretery>} />
             <Route path='profile' element={<Profile></Profile>} />
             <Route path='Prices' element={<Prices></Prices>} />
@@ -34,7 +36,7 @@ function App() {
             <Route path='/signIn' element={<SignIn></SignIn>} />
             <Route path='Schedule' element={<Schedule></Schedule>} />
             <Route path='/' element={<Home></Home>} />
-            <Route path='/homePage' element={<Home></Home>} />
+            <Route path='/homePage' element={<Home/>} />
             <Route path='*' element={<h1> 404 Page not found</h1>} />
           </Routes>
         </Router>

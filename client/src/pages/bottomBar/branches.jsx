@@ -1,103 +1,3 @@
-// // import React from 'react';
-// // import { makeStyles } from '@material-ui/core/styles';
-// // import List from '@material-ui/core/List';
-// // import ListItem from '@material-ui/core/ListItem';
-// // import ListItemIcon from '@material-ui/core/ListItemIcon';
-// // import ListItemText from '@material-ui/core/ListItemText';
-// // import FitnessCenterIcon from '@material-ui/icons/FitnessCenter';
-
-// // const useStyles = makeStyles((theme) => ({
-// //     root: {
-// //         width: '100%',
-// //         maxWidth: 360,
-// //         backgroundColor: theme.palette.background.paper,
-// //     },
-// // }));
-
-// // const gymBranches = [
-// //     'New York City',
-// //     'Los Angeles',
-// //     'Chicago',
-// //     'Houston',
-// //     'Philadelphia',
-// //     'Miami',
-// //     'San Francisco',
-// //     'Seattle',
-// //     'Atlanta',
-// // ];
-
-// // const GymBranchList = () => {
-// //     const classes = useStyles();
-
-// //     return (
-// //         <>
-// //         <h2 style={{marginTop:'7%'}}>Our Branches</h2>
-// //         <List component="nav" className={classes.root} aria-label="gym branches list">
-// //             {gymBranches.map((branch) => (
-// //                 <ListItem key={branch}>
-// //                     <ListItemIcon>
-// //                         <FitnessCenterIcon />
-// //                     </ListItemIcon>
-// //                     <ListItemText primary={branch} />
-// //                 </ListItem>
-// //             ))}
-// //         </List>
-// //         </>
-// //     );
-// // };
-
-// // export default GymBranchList;
-
-// import React from 'react';
-// import { makeStyles } from '@material-ui/core/styles';
-// import List from '@material-ui/core/List';
-// import ListItem from '@material-ui/core/ListItem';
-// import ListItemIcon from '@material-ui/core/ListItemIcon';
-// import ListItemText from '@material-ui/core/ListItemText';
-// import FitnessCenterIcon from '@material-ui/icons/FitnessCenter';
-
-// const useStyles = makeStyles((theme) => ({
-//     root: {
-//         width: '100%',
-//         maxWidth: 360,
-//         backgroundColor: theme.palette.background.paper,
-//     },
-// }));
-
-// const gymBranches = [
-//     'New York City',
-//     'Los Angeles',
-//     'Chicago',
-//     'Houston',
-//     'Philadelphia',
-//     'Miami',
-//     'San Francisco',
-//     'Seattle',
-//     'Atlanta',
-// ];
-
-// const GymBranchList = () => {
-//     const classes = useStyles();
-
-//     return (
-//         <>
-//             <h2 style={{ marginTop: '7%' }}>Our Branches</h2>
-//             <List component="nav" className={classes.root} aria-label="gym branches list">
-//                 {gymBranches.map((branch) => (
-//                     <ListItem key={branch}>
-//                         <ListItemIcon>
-//                             <FitnessCenterIcon />
-//                         </ListItemIcon>
-//                         <ListItemText primary={branch} />
-//                     </ListItem>
-//                 ))}
-//             </List>
-//         </>
-//     );
-// };
-
-// export default GymBranchList;
-
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
@@ -105,6 +5,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import FitnessCenterIcon from '@material-ui/icons/FitnessCenter';
+import MyComponent from './map';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -155,6 +56,9 @@ const GymBranchList = () => {
                     </ListItem>
                 ))}
             </List>
+            <h2>our Jerusalem branch location</h2>
+            <MyComponent />
+
         </>
     );
 };

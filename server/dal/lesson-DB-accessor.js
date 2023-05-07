@@ -18,7 +18,8 @@ class LessonsDataAccessor {
     //get lesson name by id
     getLessonName = async (_id) => {
         const lesson = await Lesson.findOne({ where: { id: _id }, attributes: ['name'] });
-        var l = lesson ? lesson.dataValues['name'] : null;
+        var l = lesson ? lesson.dataValues.name: null;
+        console.log("sdfaaaaaaaaaaaa "+l)
         return l;
     }
 

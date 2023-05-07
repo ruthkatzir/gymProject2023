@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './schedule.css';
-import RecommendationsPopup from '../RecommentsPopup/schedulePopup';
+// import RecommendationsPopup from '../RecommentsPopup/schedulePopup';
 import PoolIcon from '@mui/icons-material/Pool';
 import SportsMartialArtsIcon from '@mui/icons-material/SportsMartialArts';
 
@@ -14,19 +14,23 @@ const Schedule = (props) => {
     console.log(currentStep + 'currentStep')
 
     useEffect(() => {
-        axios
-            .get("http://localhost:3600/api/schedules")
+        loadDate();
+    }, []);
+    const loadDate = async () => {
+        axios.get("http://localhost:3600/api/schedules")
             .then((response) => {
-                console.log(response.data);
+                console.log('aaa', response.data);
                 setRows1(response.data[0]);
                 setRows2(response.data[1]);
                 setRows3(response.data[2]);
             })
-            .catch((error) => console.error(error));
-    }, []);
+            .catch((error) => console.error('aaaaaaaaaaaaaaaaaaaaaa', error));
+
+    }
+
     return (
         (<div className="schedule" style={{ width: '30%', height: '300px' }}>
-            <RecommendationsPopup />
+            {/* <RecommendationsPopup /> */}
             {currentStep === 1 && <h2>Lessons</h2>}
             {currentStep === 1 &&
                 <table id='1' style={{ maxHeight: '300px' }}>

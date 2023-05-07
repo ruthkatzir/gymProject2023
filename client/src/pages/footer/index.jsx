@@ -11,8 +11,8 @@ const footerStyle = {
   position: 'fixed',
   bottom: 0,
   width: '100%',
-  height: '3rem', // set initial height
-  transition: 'height 0.3s', // add transition
+  height: '3rem',
+  transition: 'height 0.3s',
 };
 
 export default function Footer() {
@@ -24,7 +24,7 @@ export default function Footer() {
   };
 
   const handleExpand = () => {
-    setExpanded(!expanded); // toggle expansion state
+    setExpanded(!expanded); 
   };
 
   function navigateTo(path) {
@@ -34,16 +34,16 @@ export default function Footer() {
   if (window.location.pathname === '/enterAi' || window.location.pathname === '/Secretary' || window.location.pathname === '/homePage' || window.location.pathname === '/') {
     return null;
   }
-  const footerClass = expanded ? 'expanded' : ''; // add class based on state
+  const footerClass = expanded ? 'expanded' : ''; 
 
   return (
     <BottomNavigation
       sx={{ width: 500 }}
       value={value}
       onChange={handleChange}
-      style={{ ...footerStyle, height: expanded ? '6rem' : '3rem' }} // add height based on state
-      onClick={handleExpand} // add onClick to toggle expansion
-      className={footerClass} // add class based on state
+      style={{ ...footerStyle, height: expanded ? '6rem' : '3rem' }} 
+      onClick={handleExpand} 
+      className={footerClass} 
     >
       <BottomNavigationAction
         label="Recents"

@@ -7,7 +7,7 @@ const cors = require('cors')
 const corsOptions = require('./config/corsOptions')
 const PORT = process.env.PORT || 3600
 var bodyParser = require('body-parser')
-
+//aaa
 
 //middleware
 app.use(cors(corsOptions))
@@ -27,6 +27,7 @@ app.use("/api/schedules", require("./routes/scheduleRoutes"));
 app.use("/api/secretary", require("./routes/secretaryRoutes"));
 app.use("/api/recommendations", require("./routes/RecommendationsRoutes"));
 app.use("/api/participations", require("./routes/participationRoutes"))
+app.use("/api/upload", require("./routes/upload-router"));
 
 app.all('*', (req, res) => {
     res.status(404)

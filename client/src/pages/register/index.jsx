@@ -285,7 +285,9 @@ import Box from '@mui/material/Box';
 import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
-import Uploader from '../Uploader';
+// import Uploader from '../Uploader';
+// import Uploader from './picture';
+import Picture from './uplouding';
 // import Uploader from "../../components/Uploader";
 // import Button from '@mui/material/Button';
 // import Typography from '@mui/material/Typography';
@@ -303,7 +305,7 @@ export default function Signup() {
     const [password, setPassword] = useState('');
     const [passwordVerify, setPasswordVerify] = useState('');
     const [err, setErr] = useState(null);
-    const [picture, setPicture] = useState('../');
+    const [picture, setPicture] = useState('');
     const [phone, setPhone] = useState('');
 
     const isStepOptional = (step) => {
@@ -469,7 +471,9 @@ export default function Signup() {
                     </>}
                     {activeStep === 2 && <>
                         <br />
-                        <Uploader file={picture} setFile={setPicture} label="Add Picture" />
+                        {/* <Uploader file={picture} setFile={setPicture} label="Add Picture" /> */}
+                        {/* <Uploader/> */}
+                        {/* <Upload/> */}
                         {/* <TextField
                             label="Picture"
                             type="file"
@@ -477,7 +481,8 @@ export default function Signup() {
                             variant="outlined"
                             fullWidth
                         /> */}
-                        {err && err}
+                         <Picture picture={picture} setPicture={setPicture}/>
+                        {/* {err && err} */}
                     </>}
                     <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2, color: 'red' }}>
                         <Button

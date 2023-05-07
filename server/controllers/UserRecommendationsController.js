@@ -9,8 +9,8 @@ const gymNasticDal = require("../dal/gymNastic-DB-accessor");
 
 class recommendationsController {
 
-    //get Recommendations
     getAllLesonssByPart = async (req, res) => {
+        console.log("innnnnnnnnnnnnnnnnnnnnnn ");
         const partName = req.params.partName;
         console.log("ruth   " + partName);
         const partId1 = await bodyPartDal.getPartIdByPartName(partName);
@@ -36,7 +36,8 @@ class recommendationsController {
         }
 
         // console.log("endddddddd " + lessons);
-        res.json(lessons);
+        // return res.json(lessons);
+        return lessons;
     }
 
 
@@ -54,7 +55,7 @@ class recommendationsController {
             return res.status(400).json({ message: 'No lessons found' })
         }
         var exercises = [];
-    //    console.log("aaaaaaaaaaa " + exerciseId.length);
+        //    console.log("aaaaaaaaaaa " + exerciseId.length);
         for (var e of exerciseId) {
             console.log("enter  " + e);
             var eId = e.dataValues['id'];
@@ -65,7 +66,18 @@ class recommendationsController {
         }
 
         console.log("endddddddd " + exercises);
-        res.json(exercises);
+        return exercises;
+    }
+
+    //get Recommendations
+    getAllRecommendations = async (req, res) => {
+        const lessons = await this.getAllLesonssByPart(req, res);
+        console.log("before");
+        const exercises = await this.getAllExercisesByPart(req, res);
+        console.log("after");
+        const allRecommendations = [];
+        allRecommendations.push(lessons, exercises);
+        res.json(allRecommendations);
     }
 }
 

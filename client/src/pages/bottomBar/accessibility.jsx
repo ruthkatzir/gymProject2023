@@ -34,16 +34,6 @@ const AccessibilityStatement = () => {
                 in its activity. We see people with disabilities as people with equal rights, who are entitled to enjoy full accessibility to our services and to be an integral part of the social and public fabric. The purpose of this section of the website is to inform you of the existing and proposed accessibility arrangements at the business and how you can benefit from them.
             </Typography>
             <Typography variant="h6">Details about the accessibility adjustments:</Typography>
-            {/* <List>
-        {accessibilityDetails.map((detail) => (
-          <ListItem key={detail}>
-            <ListItemIcon>
-              <CheckIcon />
-            </ListItemIcon>
-            <ListItemText primary={detail} />
-          </ListItem>
-        ))}
-      </List> */}
             <Typography variant="body1">
                 We continue our efforts to improve the website's accessibility as part of our commitment to allow its use by the entire population, including people with disabilities. The implementation of the guidelines for the service provided in the branch is also monitored.
                 For detailed information about the accessibility arrangements, you can contact:
@@ -73,8 +63,6 @@ const AccessibilityStatement = () => {
             <Typography variant="body1">
                 Accessible aids in the store:
             </Typography>
-            {/* <List>
-        {storeAccessibilityAids.map((aid) => */}
         </>
     );
 }

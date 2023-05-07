@@ -28,7 +28,6 @@ const PopupSignIn = () => {
   return (
     <div>
       <Button variant="text" onClick={handleOpen} style={{ color: 'red' }}>Sign in</Button>
-      {/* <Button id='lgnBtn' variant="contained" color="secondary" onClick={handleOpen}>Sign In / Log In</Button> */}
       <Modal
         keepMounted
         open={open}

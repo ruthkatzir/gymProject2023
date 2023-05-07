@@ -44,6 +44,7 @@ export default function PaginationControlled() {
     <>
       <br />
       <div className="schedule-container" style={{ width: '50%', height: '50%' }}>
+        {console.log("here")}
         <Schedule page={page}></Schedule>
       </div>
       <Stack className="pagination-container" spacing={1} style={{ width: '60%', height: '60%',  marginBottom: '5%' }}>

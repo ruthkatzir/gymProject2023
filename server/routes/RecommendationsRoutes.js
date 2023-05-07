@@ -4,7 +4,7 @@ const RecommendationsController = require('../controllers/UserRecommendationsCon
 const verifyJWT = require("../middleware/verifyJWT")
 router.use(verifyJWT)
 router.route('/:partName')
-    // .get(RecommendationsController.getAllLesonssByPart)// to do for exercise
-    .get(RecommendationsController.getAllExercisesByPart)
+    .get(RecommendationsController.getAllRecommendations)
+    // .get(RecommendationsController.getAllExercisesByPart)
 module.exports = router
 
