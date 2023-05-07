@@ -38,7 +38,6 @@ const WeeklySchedule = () => {
   const handleCellClick = (day, hour) => {
     // Create a popup display logic
     <ConfirmationDialog></ConfirmationDialog>
-    console.log(`Cell ${day} - ${hour} was clicked!`);
   };
 
   return (
@@ -65,13 +64,6 @@ const WeeklySchedule = () => {
                     <TableCell key={day} onClick={() => handleCellClick(day, hour)}>
                      <betton >Add Lesson</betton>
                     <AddLessonButton    DayOfWeek={1}  StartHour={"8:00:00"} ></AddLessonButton>
-        //        
-                      {/* <TextField
-                        fullWidth
-                        variant="outlined"
-                        value={schedule[day][hour]}
-                        onChange={(e) => handleScheduleChange(day, hour, e.target.value)}
-                      /> */}
                     </TableCell>
                   ))}
                 </TableRow>

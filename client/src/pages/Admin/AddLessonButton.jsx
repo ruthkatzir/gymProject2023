@@ -21,12 +21,10 @@ export default function AddLessonButton(props) {
 
     useEffect(
         () => {
-            console.log("lessonType", lessonTypeId)
         }
         , [lessonTypeId])
     useEffect(
         () => {
-            console.log("guiedId", guiedId)
         }
         , [guiedId])
 
@@ -39,7 +37,6 @@ export default function AddLessonButton(props) {
         }
         
         const data = { DayOfWeek: props.DayOfWeek, StartHour: props.StartHour, lessonTypeId, guiedId, ActiveTypeId: 1 }
-        console.log(data)
          let data1= {
          
 
@@ -51,22 +48,8 @@ export default function AddLessonButton(props) {
     
             }
         const res = await axios.post(`http://localhost:3600/api/secretary`, data1).catch(error => console.error(error));
-    //
         if(res.statusText='ok')
           setOpen(false)
-           
-        console.log(res)
-        // {
-         
-
-        //     "DayOfWeek": 1,
-        //         "StartHour": "8:00:00",
-        //             "LessonTypeId": 1,
-        //                 "guiedId": "aaa",
-        //                     "ActiveTypeId": 1
-
-        // }
-   
     }
     return (
         <React.Fragment>
@@ -91,12 +74,6 @@ export default function AddLessonButton(props) {
                         Fill in the information of the lesson.
                     </Typography>
                     <form
-                    //     onSubmit={(event) => {
-                    //         event.preventDefault();
-        
-                    //         addLesson()==true?setOpen(true):setOpen(false);
-                    //         // ;
-                    //     }}
                       >
                         <Stack spacing={2}>
                             <FormControl>
@@ -106,9 +83,7 @@ export default function AddLessonButton(props) {
                             <FormControl>
                                 <FormLabel>Name of guied</FormLabel>
                                 <SelectLesson setLessonTypeId={setLessonTypeId} ></SelectLesson>
-                                {/* <SelectGuied setGuiedId={setGuiedId}></SelectGuied> */}
                             </FormControl>
-                            {/* type="submit" */}
                             <Button onClick={()=>{addLesson()}} >Submit</Button>
      
                             {error&&<Typography id="basic-modal-dialog-description" textColor="text.tertiary">
@@ -122,24 +97,3 @@ export default function AddLessonButton(props) {
         </React.Fragment>
     );
 }
-// DayOfWeek: {
-//   type: DataTypes.INTEGER,
-//   allowNull: false
-// },
-// StartHour: {
-//   type: DataTypes.TIME(6),//check  ?
-//   allowNull: false,
-// },
-// LessonType: {
-//   type: DataTypes.INTEGER,
-//   allowNull: true //fix
-// },
-// guiedId: {
-//   type: DataTypes.STRING(30),
-//   allowNull: true
-// },
-// ActiveType: {
-//   type:1 DataTypes.INTEGER,
-//   allowNull: false
-// },
-// },

@@ -6,9 +6,7 @@ const email = require('../utils/email')
 // process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
 const login = async (req, res) => {
-    console.log("in loginnnnnnnnnnnnn");
     const { gmail, password } = req.body
-    console.log(gmail, password);
     if (!gmail || !password) {
         return res.status(400).json({
             message: 'All fields are required'
@@ -16,8 +14,6 @@ const login = async (req, res) => {
     }
     const foundUser = await User.findOne({ where: { gmail: gmail } })
 
-
-    console.log(foundUser);
     if (!foundUser) {
         return res.status(401).json({ message: 'Unauthorized' })
     }
@@ -34,7 +30,6 @@ const login = async (req, res) => {
 
 
 const register = async (req, res) => {
-    console.log("rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr");
     const { gmail, firstName, lastName, phoneNum, password, ImgPath, DateOfBirth, roles } = req.body;
     console.log(gmail, firstName, lastName, phoneNum, password, ImgPath, DateOfBirth);
     if (!gmail || !firstName || !password || !lastName || !ImgPath || !DateOfBirth) // Confirm data

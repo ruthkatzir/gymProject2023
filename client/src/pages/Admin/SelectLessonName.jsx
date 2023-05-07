@@ -9,15 +9,13 @@ const [lessons,setLessons]=useState([]);
 const loadData=async()=>{
 
     const res = await axios.get(`http://localhost:3600/api/lessons`).catch(error => console.error(error));
-    console.log(res);
-    if (res.statusText=='OK') 
+    if (res.statusText==='OK') 
         setLessons([...res.data]);
 
 }
   useEffect(()=>{loadData()
 },[]);
    
-   //;
   
     return (
     <Select  onChange={(e,value)=>{props.setLessonTypeId(value) }}  placeholder="Choose one…"   color="neutral">

@@ -21,9 +21,7 @@ const MyComponent = () => {
                 time,
             });
             setData(response.data);
-            console.log(response.data);
         } catch (error) {
-            console.log(error);
         }
     };
 
@@ -38,7 +36,6 @@ const MyComponent = () => {
             <div
                 style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}
             >
-                {console.log("here")}
                 {data.map((item) => (
                     <div key={item.id}>
                         <WideTitleCard

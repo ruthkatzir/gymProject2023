@@ -9,16 +9,11 @@ const Uploader = ({ picture, setPicture, label }) => {
         if (selectFile) {
             const formData = new FormData();
             formData.append("file", selectFile)
-            console.log({ selectFile })
             axios.post("http://localhost:3600/upload", formData).then(({ data }) => {
                 if (data?.name) {
-
-                    //setPicture(data.name)
                     setPicture([...picture, data.name])
-                    //setPresentPic([...presentPic, selectFile])
                 }
             }).catch(err => {
-                console.log("error")
             })
         }
     }, [selectFile])
@@ -39,6 +34,3 @@ const Uploader = ({ picture, setPicture, label }) => {
     )
 }
 export default Uploader;
-
-/**          <input hidden accept="image/*" multiple type="file" />
- */

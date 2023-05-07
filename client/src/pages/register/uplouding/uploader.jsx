@@ -9,11 +9,8 @@ const Uploader = ({ file, setFile, label }) => {
   useEffect(() => {
     if (selectFile) {
       const formData = new FormData();
-      console.log("innnnnnnnnnnnnnnn "+formData);
       formData.append("file", selectFile)
-      console.log("fffffffffffff "+selectFile);
       axios.post("http://localhost:3600/api/upload", formData, {}).then(({ data }) => {
-        console.log("aaaaaaaaaaaaaaa");
         if (data?.name) {
           setFile(data.name)
         }
@@ -27,7 +24,6 @@ const Uploader = ({ file, setFile, label }) => {
 
 
   const onSelectFile = (e) => {
-    console.log(e.target.files[0])
     setSelectFile(e.target.files[0])
   }
   return (
@@ -35,7 +31,6 @@ const Uploader = ({ file, setFile, label }) => {
       <Button variant="outlined" component="label">{label ? label : "File"}
         <input type="file" onChange={onSelectFile} id="file" hidden />
       </Button>
-      {/* <label htmlFor="file"> {label? label : "File"} </label> */}
       <input type="file" onChange={onSelectFile} name="file" />
     </>
   )

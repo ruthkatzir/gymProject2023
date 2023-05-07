@@ -12,16 +12,12 @@ export const AuthContextProvider = ({ children }) => {
   );
 
  const login = async ({ email, password }) => {
-//  console.log("innnnnn "+email, password);
+
   const res = await axios.post("http://localhost:3600/api/auth/login", 
     { gmail:email, password }
-    // ,{
-    //     withCredentials: true,
-    //   }
     )  
     setCurrentUser(res.data.user);
     setToken(res.data.accessToken);
-    // console.log(currentUser.userInfo.roles)
   };
   const logout = () => {
     setCurrentUser(null);

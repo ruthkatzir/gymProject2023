@@ -1,55 +1,8 @@
-
-
-
-
-// import * as React from 'react';
-// import RecommendedLessons from './RecommendedLessons';
-// import Typography from '@mui/material/Typography';
-// import Divider from '@mui/material/Divider';
-// import PlayLessonIcon from '@mui/icons-material/PlayLesson';
-// import Madia from './aa'
-// export default function PaginationControlled() {
-//   const [page, setPage] = React.useState(1);
-
-//   const handleChange = (e, value) => {
-//     console.log(value)
-//     setPage(value);
-//   };
-
-//   return (
-//     <>
-//       {/* <br /><Typography  align='left' variant="h4" component="h5">
-// The lessons recommended for you dd
-//  </Typography> */}
-//       <div className="schedule-container" style={{ width: '50%', height: '50%' }}>
-//       <h1>The lessons recommended for you </h1>
-
-//       <RecommendedLessons></RecommendedLessons>
-//       </div>
-//        <Divider variant="inset" component="li" /><br></br><br></br>
-//        <div  style={{ width: '50%', height: '50%' }}>
-//        <h1>The exercise recommended for you </h1>
-//        <RecommendedLessons></RecommendedLessons>
-//        {/* <RecommendedVideos></RecommendedVideos> */}
-//       <Madia></Madia>
-//       </div>
-//     </>
-//   );
-// }
-
 import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Button from '@mui/material/Button';
-import CameraIcon from '@mui/icons-material/PhotoCamera';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
 import CssBaseline from '@mui/material/CssBaseline';
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Link from '@mui/material/Link';
@@ -83,13 +36,13 @@ function Copyright() {
   );
 }
 
-const cards = [1, 2, 3];
+// const cards = [1, 2, 3];
 
 const theme = createTheme();
 
 export default function Album() {
   const { currentUser, token } = useContext(AuthContext);
-  const { Name, setName } = useState("")
+  // const { Name, setName } = useState("")
   const [recommendationsExc, setRecommendationsExc] = useState([]);
   const [recommendationsLessons, setRecommendationsLessons] = useState([]);
 
@@ -102,13 +55,12 @@ export default function Album() {
       headers: { Authorization: `Bearer ${token}` }
     };
     const res = await axios.get(`http://localhost:3600/api/recommendations/Abdominals`, config).catch(error => console.error(error));
-    if (res.statusText == 'OK') {
+    if (res.statusText === 'OK') {
       setRecommendationsLessons(res.data[0]);
       setRecommendationsExc(res.data[1]);
-      console.log(res.data);
     }
   }
-  console.log(currentUser)
+
   return (
     <div>
       <ThemeProvider theme={theme}>
@@ -155,7 +107,6 @@ export default function Album() {
             </Grid><br></br><br></br>
             <Divider textAlign="right"> The excersize recommended for you</Divider><br></br><br></br>
             <Grid container spacing={4}>
-              {console.log(recommendationsExc)}
               {recommendationsExc.map((card, index) => (
                 <Exercises key={index} exc={card.Name} desc={card.Description}></Exercises>
               ))}

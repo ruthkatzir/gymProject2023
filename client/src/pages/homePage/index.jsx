@@ -8,13 +8,11 @@ import Grid from '@material-ui/core/Grid';
 import { useContext } from 'react';
 import { AuthContext } from "../../context/authContext";
 import ReactPlayer from 'react-player';
-import Secretery from '../Admin';
 import home from '../../images/home.mp4';
 import img1 from '../../images/1.jpg';
 import img2 from '../../images/2.jpg';
 import img3 from '../../images/3.jpg';
 import img4 from '../../images/9.jpg';
-import StickyHeadTable from './try';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -66,13 +64,10 @@ const useStyles = makeStyles((theme) => ({
 const Home = () => {
     const { token, currentUser } = useContext(AuthContext);
     const [isScretery, setIsScretery] = useState(0);
-    console.log("innnnnnnnn0 " + isScretery);
-    console.log("innnnnnnnn1 " + isScretery);
     const classes = useStyles();
     const [heroImage, setHeroImage] = useState(1);
 
     useEffect(() => {
-        console.log(currentUser);
         if (currentUser) {
             currentUser.roles === 'ADMIN' ? setIsScretery(1) : setIsScretery(0);
         }
@@ -98,14 +93,11 @@ const Home = () => {
         return () => clearInterval(intervalId);
     }, [heroImage]);
 
-    console.log("before " + isScretery);
     if (isScretery) {
-        console.log("enter " + isScretery);
         window.location.href = '/secretery';
     }
     else {
         return (
-            console.log("come " + isScretery),
             <div className={classes.root} style={{ marginTop: '0.6pc' }}>
                 {<div className={classes.heroContent}>
                     <ReactPlayer

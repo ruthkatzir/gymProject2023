@@ -6,7 +6,7 @@ import PopupState, { bindTrigger, bindPopover } from 'material-ui-popup-state';
 
 
 export default function ExcDesc(props) {
-    //   const [desc,setDesc]=useState(props.desc)
+
     return (
         <PopupState variant="popover" popupId="demo-popup-popover">
             {(popupState) => (

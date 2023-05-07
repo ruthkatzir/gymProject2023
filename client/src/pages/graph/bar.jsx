@@ -42,18 +42,13 @@ export default function BarParticipations() {
         const res = await axios.get(`http://localhost:3600/api/participations/${currentUser.gmail}`, config).catch(error => console.error(error));
         if (res.statusText == 'OK') {
             setUserParticipations(res.data);
-            console.log(res.data);
             let types = [];
             res.data.forEach(x => { types.push(x.lessonType) })
             let unique = [...new Set(types)];
             setData({ name: unique[0] });
-            console.log('Participations', userParticipations);
-            console.log("types", types);
-            console.log("unique", unique);
             let countlesson = {};
             unique.forEach(lesson => { countlesson[lesson] = 0 });
             types.forEach(lesson => { countlesson[lesson]++ });
-            console.log(countlesson);
 
             let obj = [];
             unique.forEach(x => {

@@ -25,7 +25,6 @@ export default function Rate(props) {
             { grading: rating },
             config
         ).catch(error => console.error(error));
-        console.log(res);
     };
 
     return (

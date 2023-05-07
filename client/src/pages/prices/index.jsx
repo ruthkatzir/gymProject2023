@@ -22,15 +22,12 @@ function PricingContent() {
     const { currentUser } = useContext(AuthContext);
 
     const childShow = (checked) => {
-        console.log(checked);
         setisShow(checked);
-        console.log(isShow);
     };
 
     useEffect(() => {
         axios.get('http://localhost:3600/api/price')
             .then(response => {
-                console.log(response.data);
                 response.data.forEach(e => {
                     if (e.type === 'month')
                         e.buttonVariant = 'contained';
@@ -50,8 +47,6 @@ function PricingContent() {
         const config = {
             headers: { Authorization: `Bearer ${token}` }
         };
-        console.log("here");
-        console.log(currentUser.gmail, numEnters, type);
         axios.post("http://localhost:3600/api/purchase", { userId: currentUser.gmail, type: type, numEnters: numEnters }, config)
             .then(console.log)
             .catch(console.log);
@@ -89,7 +84,6 @@ function PricingContent() {
                         xs={12}
                         sm={tier.type === 'month' ? 12 : 6}
                         md={2}
-                        // ml={'10%'}
                     >
                         <Card>
                             <CardHeader

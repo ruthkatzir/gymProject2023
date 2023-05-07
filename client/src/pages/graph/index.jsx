@@ -16,9 +16,8 @@ const Graph = () => {
             headers: { Authorization: `Bearer ${token}` }
         };
         const res = await axios.get(`http://localhost:3600/api/measurements/${currentUser.gmail}`, config).catch(error => console.error(error));
-        if (res.statusText == 'OK') {
+        if (res.statusText === 'OK') {
             setUserMeasurements(res.data);
-            console.log(res.data);
         }
     }
 
