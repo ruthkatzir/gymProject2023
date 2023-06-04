@@ -25,7 +25,7 @@ export default function SimpleCollapse(props) {
                         justifyContent: 'space-around',
                         height: '10%',
                         width: '100%',
-                        backgroundColor:'gray' , // change blue to black
+                        backgroundColor:'black' , // change blue to black
                         color: 'white',
                         borderColor: 'error.main'
                     },

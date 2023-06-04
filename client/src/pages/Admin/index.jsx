@@ -1,11 +1,13 @@
-import WeeklySchedule from './gptData';
-const Secretery = () => {
+import WeeklySchedule from './WeeklySchedule';
+const Secretary = () => {
+
   return (
     <>
-      <h1>מסך פתיחה מזכירה</h1>
+      <h1 style={{ color: '#6c2a2a' }}>Updating the studio lesson system</h1>
+      <br />
       <WeeklySchedule></WeeklySchedule>
     </>
   );
 }
 
-export default Secretery;
+export default Secretary;

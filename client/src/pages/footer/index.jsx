@@ -1,11 +1,11 @@
 import * as React from 'react';
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
-import FolderIcon from '@mui/icons-material/Folder';
-import RestoreIcon from '@mui/icons-material/Restore';
-import FavoriteIcon from '@mui/icons-material/Favorite';
+import ContactPhoneSharpIcon from '@mui/icons-material/ContactPhoneSharp';
+import AccessibleForwardSharpIcon from '@mui/icons-material/AccessibleForwardSharp';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import Typography from '@mui/material/Typography';
+import ConstructionSharpIcon from '@mui/icons-material/ConstructionSharp';
 
 const footerStyle = {
   position: 'fixed',
@@ -24,31 +24,31 @@ export default function Footer() {
   };
 
   const handleExpand = () => {
-    setExpanded(!expanded); 
+    setExpanded(!expanded);
   };
 
   function navigateTo(path) {
     window.location.href = path;
   }
 
-  if (window.location.pathname === '/enterAi' || window.location.pathname === '/Secretary' || window.location.pathname === '/homePage' || window.location.pathname === '/') {
+  if (window.location.pathname === '/enter-ai' || window.location.pathname === '/secretary' || window.location.pathname === '/homePage' || window.location.pathname === '/') {
     return null;
   }
-  const footerClass = expanded ? 'expanded' : ''; 
+  const footerClass = expanded ? 'expanded' : '';
 
   return (
     <BottomNavigation
       sx={{ width: 500 }}
       value={value}
       onChange={handleChange}
-      style={{ ...footerStyle, height: expanded ? '6rem' : '3rem' }} 
-      onClick={handleExpand} 
-      className={footerClass} 
+      style={{ ...footerStyle, height: expanded ? '6rem' : '3rem' }}
+      onClick={handleExpand}
+      className={footerClass}
     >
       <BottomNavigationAction
-        label="Recents"
-        value="recents"
-        icon={<RestoreIcon />}
+        label="Regulations"
+        value="regulations"
+        icon={<ConstructionSharpIcon />}
         onClick={() => navigateTo(`/regulations`)}
       >
         <Typography variant="caption" color="text.secondary" align="center">
@@ -56,32 +56,34 @@ export default function Footer() {
         </Typography>
       </BottomNavigationAction>
       <BottomNavigationAction
-        label="Favorites"
-        value="favorites"
-        icon={<FavoriteIcon />}
+        label="Branches"
+        value="branches"
+        icon={<LocationOnIcon />}
         onClick={() => navigateTo(`/gymBranchList`)}
       >
         <Typography variant="caption" color="text.secondary" align="center">
-          My Favorites
+          our Branches
         </Typography>
       </BottomNavigationAction>
       <BottomNavigationAction
-        label="Nearby"
-        value="nearby"
-        icon={<LocationOnIcon />}
+        label="Accessibility "
+        value="Accessibility "
+        icon={<AccessibleForwardSharpIcon />}
         onClick={() => navigateTo(`/accessibilityStatement`)}
       >
         <Typography variant="caption" color="text.secondary" align="center">
-          Nearby Places
+        Accessibility 
         </Typography>
       </BottomNavigationAction>
       <BottomNavigationAction
-        label="Folder"
-        value="folder"
-        icon={<FolderIcon />}
+        label="Concat Us"
+        value="Concat Us"
+        icon={<ContactPhoneSharpIcon />}
+        onClick={() => navigateTo(`/sendReview`)}
+        // onClick={()=>{<FormDialog/>}}
       >
         <Typography variant="caption" color="text.secondary" align="center">
-          My Folder
+        Concat Us
         </Typography>
       </BottomNavigationAction>
       <Typography variant="body2" color="text.secondary" align="center">

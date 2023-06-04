@@ -17,6 +17,10 @@ import PopupSignUp from '../popupSingUp';
 import ReactPlayer from 'react-player';
 import Grid from '@mui/material/Grid';
 import logo from '../../images/logo.mp4';
+import HomeIcon from '@mui/icons-material/Home';
+import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
+import DateRangeIcon from '@mui/icons-material/DateRange';
+// TODO: ask location by useLocation from react-router-dom
 
 const pages = ['homePage', 'prices', 'schedule'];
 
@@ -36,7 +40,7 @@ function ResponsiveAppBar() {
         window.location.href = path;
     }
 
-    if (window.location.pathname === '/enter-ai' || window.location.pathname === '/secretery') {
+    if (window.location.pathname === '/enter-ai' || window.location.pathname === '/secretary') {
         return null;
     }
 
@@ -75,10 +79,14 @@ function ResponsiveAppBar() {
                         {pages.map((page) => (
                             <Button
                                 key={page}
+                                //fontSize='100px'
                                 onClick={() => navigateTo(`./${page}`)}
-                                sx={{ my: 2, color: 'red', display: 'block', textAlign: 'center', marginLeft: '10%' }}
+                                sx={{ my: 2, color: 'red', display: 'block', textAlign: 'center', marginLeft: '10%'}}
                             >
                                 {page}
+                                {page==='homePage'?<HomeIcon/> :<></>}
+                                {page==='prices'?<MonetizationOnIcon/> :<></>}
+                                {page==='schedule'?<DateRangeIcon/> :<></>}
                             </Button>
                         ))}
                     </Box>
@@ -118,7 +126,7 @@ function ResponsiveAppBar() {
                             : <>
                                 <Grid container spacing={2}>
                                     <Grid item xs={6}>
-                                         <PopupSignIn />
+                                        <PopupSignIn />
                                     </Grid>
                                     <Grid item xs={6}>
                                         <PopupSignUp />

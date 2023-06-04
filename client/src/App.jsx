@@ -1,7 +1,7 @@
 //import './App.css';
 import Signup from '../src/pages/register';
 //import AppBar from '@mui/material';
-import { BrowserRouter as Router, Routes, Route, NavLink } from "react-router-dom"
+import { BrowserRouter as Router, Routes, Route, NavLink } from "react-router-dom";
 import SignIn from './pages/signIn'
 import Schedule from './pages/schedule';
 import Prices from './pages/prices';
@@ -25,11 +25,12 @@ function App() {
         <ResponsiveAppBar/>
         <Router>
           <Routes>
+
             <Route path='accessibilityStatement' element={<AccessibilityStatement></AccessibilityStatement>} />
             <Route path='gymBranchList' element={<GymBranchList></GymBranchList>} />
             <Route path='regulations' element={<Regulations></Regulations>} />
             <Route path='enter-ai' element={<Main/>} />
-            <Route path='secretery' element={<Secretery></Secretery>} />
+            <Route path='secretary' element={<Secretery></Secretery>} />
             <Route path='profile' element={<Profile></Profile>} />
             <Route path='Prices' element={<Prices></Prices>} />
             <Route path='/signUp' element={<Signup></Signup>} />

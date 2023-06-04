@@ -7,7 +7,7 @@ import Input from '@mui/joy/Input';
 import Modal from '@mui/joy/Modal';
 import ModalDialog from '@mui/joy/ModalDialog';
 import Stack from '@mui/joy/Stack';
-import Add from '@mui/icons-material/Add';
+import AddIcon from '@mui/icons-material/Add';
 import Typography from '@mui/joy/Typography';
 import SelectLesson from './SelectLessonName';
 import SelectGuied from './SelectGuiedName';
@@ -16,47 +16,30 @@ import axios from 'axios';
 export default function AddLessonButton(props) {
     const [open, setOpen] = useState(false);
     const [lessonTypeId, setLessonTypeId] = useState('');
-    const [guiedId, setGuiedId] = useState(1);
+    const [guiedId, setGuiedId] = useState();
     const [error, serError] = useState(false);
 
-    useEffect(
-        () => {
-        }
-        , [lessonTypeId])
-    useEffect(
-        () => {
-        }
-        , [guiedId])
 
     const addLesson = async () => {
-    
-        
+
         if (guiedId == '' || lessonTypeId == '') {
             serError(true)
             return;
         }
-        
-        const data = { DayOfWeek: props.DayOfWeek, StartHour: props.StartHour, lessonTypeId, guiedId, ActiveTypeId: 1 }
-         let data1= {
-         
+        const data = { DayOfWeek: props.DayOfWeek, StartHour: props.StartHour, LessonTypeId: lessonTypeId, guiedId, ActiveTypeId: 1 }
+        const res = await axios.post(`http://localhost:3600/api/secretary`, data).catch(error => console.error(error));
+        if (res.status == 201) {
+            setOpen(false)
+            props.setLoadLessons(true)
+        }
 
-                DayOfWeek: 1,
-                    StartHour: "8:00:00",
-                        LessonTypeId: 1,
-                            guiedId: "aaa",
-                                ActiveTypeId: 1
-    
-            }
-        const res = await axios.post(`http://localhost:3600/api/secretary`, data1).catch(error => console.error(error));
-        if(res.statusText='ok')
-          setOpen(false)
     }
     return (
         <React.Fragment>
-            <Button
+            <Button sx={{ maxWidth: '90%' }}
                 variant="outlined"
                 color="neutral"
-                startDecorator={<Add />}
+                startDecorator={<AddIcon />}
                 onClick={() => setOpen(true)}
             >
                 Add Lesson
@@ -73,8 +56,7 @@ export default function AddLessonButton(props) {
                     <Typography id="basic-modal-dialog-description" textColor="text.tertiary">
                         Fill in the information of the lesson.
                     </Typography>
-                    <form
-                      >
+                    <form>
                         <Stack spacing={2}>
                             <FormControl>
                                 <FormLabel>Type of lesson</FormLabel>
@@ -82,14 +64,15 @@ export default function AddLessonButton(props) {
                             </FormControl>
                             <FormControl>
                                 <FormLabel>Name of guied</FormLabel>
-                                <SelectLesson setLessonTypeId={setLessonTypeId} ></SelectLesson>
+                                <SelectGuied setGuiedId={setGuiedId}></SelectGuied>
                             </FormControl>
-                            <Button onClick={()=>{addLesson()}} >Submit</Button>
-     
-                            {error&&<Typography id="basic-modal-dialog-description" textColor="text.tertiary">
+
+                            <Button onClick={() => { addLesson() }} >Submit</Button>
+
+                            {error && <Typography id="basic-modal-dialog-description" textColor="text.tertiary">
                                 All fields are required
                             </Typography>}
-                         
+
                         </Stack>
                     </form>
                 </ModalDialog>

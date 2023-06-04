@@ -15,14 +15,17 @@ import Container from '@mui/material/Container';
 import SimpleCollapse from './explanation';
 import axios from 'axios';
 import { AuthContext } from "../../context/authContext";
+import PopupPayment from './payment';
+
 
 function PricingContent() {
     const [rows, setRows] = useState([]);
     const [isShow, setisShow] = useState(false);
+    const [open, setOpen] = useState(false);
     const { currentUser } = useContext(AuthContext);
 
-    const childShow = (checked) => {
-        setisShow(checked);
+    const childShow = (open) => {
+        setisShow(open);
     };
 
     useEffect(() => {
@@ -50,6 +53,7 @@ function PricingContent() {
         axios.post("http://localhost:3600/api/purchase", { userId: currentUser.gmail, type: type, numEnters: numEnters }, config)
             .then(console.log)
             .catch(console.log);
+        setOpen(true);
     };
 
     return (
@@ -139,6 +143,8 @@ function PricingContent() {
                     </Grid>
                 ))}
             </Grid>
+            {/* {Open? <PopupPayment open={Open}/>:<></>} */}
+            {open && <PopupPayment f={() => {setOpen(false)}} open={open}/>}
         </React.Fragment>
     );
 }

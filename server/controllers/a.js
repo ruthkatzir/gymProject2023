@@ -9,21 +9,14 @@ class secretaryController {
     getAllGuieds = async (req, res) => {
         const guieds = await gymGuiedDal.getAllGuide();
         if(!guieds?.length){
-            return res.status(204).json({message: 'No guieds found'})
+            return res.status(400).json({message: 'No guieds found'})
         }
         res.json(guieds)
     }
-    getGuiedById= async (req, res) => {
-        const guied = await gymGuiedDal.getGuideNameById(req.params.id);
-        if(!guied){
-            return res.status(204).json({message: 'No guied found'})
-        }
-        res.json(guied)
-    }
+
     //add new activity to schedule
     createNewActivity = async (req, res) => {
-        const { DayOfWeek,StartHour,ActiveTypeId, LessonTypeId, guiedId} = req.body
-       console.log("aaaaaaaaaaaaaaaaaaaaaa",DayOfWeek,StartHour,ActiveTypeId, LessonTypeId, guiedId)
+        const { DayOfWeek, StartHour, LessonTypeId, guiedId, ActiveTypeId } = req.body
         if (!DayOfWeek || !StartHour || !ActiveTypeId) {
             return res.status(400).json({ message: 'All fields are required' })
         }

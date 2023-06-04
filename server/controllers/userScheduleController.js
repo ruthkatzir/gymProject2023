@@ -35,7 +35,7 @@ class schedulesController {
         });
         await Promise.all(promises);
         if (!schedules?.length) {
-            return res.status(400).json({ message: 'No schedules found' })
+            return res.status(204).json({ message: 'No schedules found' })
         }
 
         lessons.forEach(async e1 => {
