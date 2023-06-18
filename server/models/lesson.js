@@ -11,6 +11,10 @@ const {sequelize, DataTypes} = require('./sequelize')
         primaryKey: true,
         allowNull: false,
         autoIncrement: true
+      },
+      imgPath: {
+        type: DataTypes.STRING,
+        allowNull: true,
       }
     },
     {

@@ -11,9 +11,10 @@ function RedBar() {
         <Box
             sx={{
                 height: 10,
+                //backgroundColor:'red'
                 backgroundColor: (theme) =>
                     theme.palette.mode === 'light'
-                        ? 'rgba(255, 0, 0, 0.1)'
+                        ? 'rgba(255, 0, 0, 0.5)'
                         : 'rgb(255 132 132 / 25%)',
             }}
         />
@@ -71,7 +72,7 @@ const Measurment = () => {
                 margin="dense"
                 value={height}
             />
-            <RedBar style={{ marginTop: 1, marginBottom: 1 }} />
+            <RedBar style={{ marginTop: 1, marginBottom: 1,color:'red' }} />
             <TextField
                 onChange={(e) => setHip(e.target.value)}
                 type="number"

@@ -17,6 +17,7 @@ export const AuthContextProvider = ({ children }) => {
     { gmail:email, password }
     )  
     setCurrentUser(res.data.user);
+    // res.data.user.roles==='Admin'?
     setToken(res.data.accessToken);
   };
   const logout = () => {

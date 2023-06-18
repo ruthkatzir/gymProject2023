@@ -56,6 +56,7 @@ export default function Album() {
     };
     const res = await axios.get(`http://localhost:3600/api/recommendations/Abdominals`, config).catch(error => console.error(error));
     if (res.statusText === 'OK') {
+      console.log(res.data);
       setRecommendationsLessons(res.data[0]);
       setRecommendationsExc(res.data[1]);
     }
@@ -101,14 +102,15 @@ export default function Album() {
           <Container sx={{ py: 10 }} maxWidth="md"><br></br><br></br>
             <Divider textAlign="left"> The lessons recommended for you</Divider><br></br><br></br>
             <Grid container spacing={4}>
+            {console.log(recommendationsLessons)}
               {recommendationsLessons.map((card, index) => (
-                <Lesson key={index} name={card}></Lesson>
+                <Lesson key={index} name={card.name} imgPath={card.imgPath} ></Lesson>
               ))}
             </Grid><br></br><br></br>
             <Divider textAlign="right"> The excersize recommended for you</Divider><br></br><br></br>
             <Grid container spacing={4}>
               {recommendationsExc.map((card, index) => (
-                <Exercises key={index} exc={card.Name} desc={card.Description}></Exercises>
+                <Exercises key={index} exc={card.Name} desc={card.Description} imgPath={card.MoviePath}></Exercises>
               ))}
             </Grid>
           </Container>

@@ -25,7 +25,7 @@ import DateRangeIcon from '@mui/icons-material/DateRange';
 const pages = ['homePage', 'prices', 'schedule'];
 
 function ResponsiveAppBar() {
-    const [anchorElNav, setAnchorElNav] = React.useState(null);
+    //const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
     const { token, logout, currentUser } = useContext(AuthContext);
 
@@ -81,12 +81,12 @@ function ResponsiveAppBar() {
                                 key={page}
                                 //fontSize='100px'
                                 onClick={() => navigateTo(`./${page}`)}
-                                sx={{ my: 2, color: 'red', display: 'block', textAlign: 'center', marginLeft: '10%'}}
+                                sx={{ my: 2, color: 'white', display: 'block', textAlign: 'center', marginLeft: '10%',fontFamily: 'Monospace' }}
                             >
                                 {page}
-                                {page==='homePage'?<HomeIcon/> :<></>}
-                                {page==='prices'?<MonetizationOnIcon/> :<></>}
-                                {page==='schedule'?<DateRangeIcon/> :<></>}
+                                {page === 'homePage' ? <HomeIcon /> : <></>}
+                                {page === 'prices' ? <MonetizationOnIcon /> : <></>}
+                                {page === 'schedule' ? <DateRangeIcon /> : <></>}
                             </Button>
                         ))}
                     </Box>

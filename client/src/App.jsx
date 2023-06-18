@@ -8,7 +8,7 @@ import Prices from './pages/prices';
 import Profile from './pages/profile';
 import ResponsiveAppBar from './pages/navBar';
 import Home from './pages/homePage';
-import Secretery from '../src/pages/Admin/index';
+import Secretary from '../src/pages/Admin/index';
 import Regulations from '../src/pages/bottomBar/regrulations';
 import GymBranchList from '../src/pages/bottomBar/branches';
 import AccessibilityStatement from '../src/pages/bottomBar/accessibility';
@@ -30,7 +30,7 @@ function App() {
             <Route path='gymBranchList' element={<GymBranchList></GymBranchList>} />
             <Route path='regulations' element={<Regulations></Regulations>} />
             <Route path='enter-ai' element={<Main/>} />
-            <Route path='secretary' element={<Secretery></Secretery>} />
+            <Route path='secretary' element={<Secretary></Secretary>} />
             <Route path='profile' element={<Profile></Profile>} />
             <Route path='Prices' element={<Prices></Prices>} />
             <Route path='/signUp' element={<Signup></Signup>} />

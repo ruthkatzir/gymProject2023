@@ -94,7 +94,7 @@ const Home = () => {
     }, [heroImage]);
 
     if (isScretery) {
-        window.location.href = '/secretery';
+        window.location.href = '/secretary';
     }
     else {
         return (

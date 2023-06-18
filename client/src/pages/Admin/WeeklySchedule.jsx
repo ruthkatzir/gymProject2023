@@ -61,23 +61,23 @@ export default function WeeklySchedule() {
 
 
     return (
-        <TableContainer component={Paper}  >
+        <TableContainer component={Paper} style={{ marginLeft: '2%', maxWidth: '91%' }} >
             <Table sx={{ minWidth: 650, maxWidth: '60%' }} aria-label="caption table">
                 <TableHead>
                     <TableRow>
                         <TableCell></TableCell>
-                        {daysOfWeek.map((day, ind) => <TableCell key={ind} align="left"  style={{ fontWeight: '1000' ,borderBottom: '1px solid rgb(143, 74, 74)'}} >{day}</TableCell>)}
+                        {daysOfWeek.map((day, ind) => <TableCell key={ind} align="left" style={{ fontWeight: '1000', borderBottom: '1px solid rgb(143, 74, 74)' }} >{day}</TableCell>)}
                     </TableRow>
                 </TableHead>
                 <TableBody>
 
                     {hourOfDay.map((hour, ind) =>
                         <TableRow key={ind}>
-                            <TableCell key={ind * 2} component="th" scope="row" align="left" style={{ fontWeight: '1000' ,border: '1px solid rgb(143, 74, 74)'}}sx={{ maxWidth: '1%' }}>
+                            <TableCell key={ind * 2} component="th" scope="row" align="left" style={{ fontWeight: '1000', border: '1px solid rgb(143, 74, 74)' }} sx={{ maxWidth: '1%' }}>
                                 {hour}
                             </TableCell>
                             {daysOfWeek.map((day, index) =>
-                                <TableCell key={index} align="left" style={{ fontWeight: '1000' ,borderBottom: '1px solid rgb(143, 74, 74)'}}  sx={{ maxWidth: 1, maxHeight: 10 }} >
+                                <TableCell key={index} align="left" style={{ fontWeight: '1000', border: '1px solid rgb(143, 74, 74)' }} sx={{ maxWidth: 1, maxHeight: 10 }} >
                                     {getButton(hour + ':00', index + 1)}
                                 </TableCell>)
                             }

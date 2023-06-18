@@ -1,12 +1,12 @@
 import SignIn from '../signIn';
-import SignUp from '../register';
-import { Popover } from '@mui/material';
+// import SignUp from '../register';
+// import { Popover } from '@mui/material';
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { autocompleteClasses } from "@mui/material";
+// import { autocompleteClasses } from "@mui/material";
 import { AuthContext } from '../../context/authContext';
 import { useContext } from 'react';
 
@@ -21,7 +21,7 @@ const PopupSignIn = () => {
 
   };
   const [open, setOpen] = React.useState(false);
-  const { token } = useContext(AuthContext);
+  // const { token } = useContext(AuthContext);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 

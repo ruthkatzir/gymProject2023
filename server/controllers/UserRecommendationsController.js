@@ -10,7 +10,6 @@ const gymNasticDal = require("../dal/gymNastic-DB-accessor");
 class recommendationsController {
 
     getAllLesonssByPart = async (req, res) => {
-        console.log("innnnnnnnnnnnnnnnnnnnnnn ");
         const partName = req.params.partName;
         console.log("ruth   " + partName);
         const partId1 = await bodyPartDal.getPartIdByPartName(partName);
@@ -30,8 +29,10 @@ class recommendationsController {
             // console.log("enter  " + e);
             var eId = e.dataValues['lessonToPartId'];
             console.log("enter  " + eId);
-            var lessonName = await lessonDal.getLessonName(eId);
-            lessons.push(lessonName);
+            // var lessonName = await lessonDal.getLessonName(eId);
+            // var lessonImgPath= await lessonDal.getOneLesson
+            var lesson= await lessonDal.getOneLesson(eId);
+            lessons.push(lesson);
             // console.log("endddddddd 1111111111" + lessonName);
         }
 
