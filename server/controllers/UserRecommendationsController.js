@@ -22,7 +22,6 @@ class recommendationsController {
         if (!lessonsId) {
             return res.status(400).json({ message: 'No lessons found' })
         }
-        //console.log("ruth hh  " + lessonsId);
         var lessons = [];
         console.log("aaaaaaaaaaa " + lessonsId.length);
         for (var e of lessonsId) {
@@ -31,7 +30,8 @@ class recommendationsController {
             console.log("enter  " + eId);
             // var lessonName = await lessonDal.getLessonName(eId);
             // var lessonImgPath= await lessonDal.getOneLesson
-            var lesson= await lessonDal.getOneLesson(eId);
+            var lesson = await lessonDal.getOneLesson(eId);
+            console.log("lesson ", lesson);
             lessons.push(lesson);
             // console.log("endddddddd 1111111111" + lessonName);
         }
@@ -73,9 +73,7 @@ class recommendationsController {
     //get Recommendations
     getAllRecommendations = async (req, res) => {
         const lessons = await this.getAllLesonssByPart(req, res);
-        console.log("before");
         const exercises = await this.getAllExercisesByPart(req, res);
-        console.log("after");
         const allRecommendations = [];
         allRecommendations.push(lessons, exercises);
         res.json(allRecommendations);

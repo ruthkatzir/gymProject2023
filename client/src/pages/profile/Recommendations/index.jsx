@@ -42,7 +42,7 @@ const theme = createTheme();
 
 export default function Album() {
   const { currentUser, token } = useContext(AuthContext);
-  // const { Name, setName } = useState("")
+
   const [recommendationsExc, setRecommendationsExc] = useState([]);
   const [recommendationsLessons, setRecommendationsLessons] = useState([]);
 
@@ -50,17 +50,74 @@ export default function Album() {
     loadData();
   }, []);
 
+  // const loadData = async () => {
+  //   const config = {
+  //     headers: { Authorization: `Bearer ${token}` }
+  //   };
+  //   //get the last details of the client
+  //   let partName = 'general';
+  //   const measurments = await axios.get(`http://localhost:3600/api/measurements/${currentUser.gmail}`, config).catch(error => console.error(error));
+  //   if (measurments.statusText === 'OK') {
+  //     const sortedData = measurments.data.sort((a, b) => new Date(b.measureDate) - new Date(a.measureDate));
+  //     const latestRow = sortedData[0];
+  //     console.log("partttt ", partName);
+  //     if (latestRow.weight > 60 && latestRow.WaistCircumference > 15) {
+  //       partName = "Abdominals";
+  //     }
+  //     else if (latestRow.weight > 60 && (latestRow.height < 170 || latestRow.HipCircumference > 40)) {
+  //       partName = "hips and pelvis";
+  //     }
+  //   }
+  //   const res = await axios.get(`http://localhost:3600/api/recommendations/${partName}`, config).catch(error => console.error(error));
+  //   if (res.statusText === 'OK') {
+  //     console.log(res.data);
+  //     setRecommendationsLessons(res.data[0]);
+  //     setRecommendationsExc(res.data[1]);
+  //   }
+  // }
+
   const loadData = async () => {
     const config = {
       headers: { Authorization: `Bearer ${token}` }
     };
-    const res = await axios.get(`http://localhost:3600/api/recommendations/Abdominals`, config).catch(error => console.error(error));
-    if (res.statusText === 'OK') {
-      console.log(res.data);
-      setRecommendationsLessons(res.data[0]);
-      setRecommendationsExc(res.data[1]);
+
+    // Get the last details of the client
+    let partName = 'general';
+    try {
+      const measurements = await axios.get(`http://localhost:3600/api/measurements/${currentUser.gmail}`, config);
+      if (measurements.statusText === 'OK') {
+        console.log("measurements ", measurements.data);
+        const sortedData = measurements.data.sort((a, b) => new Date(b.measureDate) - new Date(a.measureDate));
+        const latestRow = sortedData[0];
+        console.log("latestRow ", latestRow);
+        console.log("partttt ", partName);
+
+        if (latestRow.weight > 60 && latestRow.WaistCircumference > 15) {
+          console.log("in ");
+          partName = "Abdominals";
+        } else if (latestRow.weight > 60 && (latestRow.height < 170 || latestRow.HipCircumference > 40)) {
+          console.log("in2 ");
+          partName = "general";
+        }
+        // partName = "hips";
+        console.log("partttt1 ", partName);
+      }
+    } catch (error) {
+      console.error(error);
     }
-  }
+
+    try {
+      const res = await axios.get(`http://localhost:3600/api/recommendations/${partName}`, config);
+      if (res.statusText === 'OK') {
+        console.log(res.data);
+        setRecommendationsLessons(res.data[0]);
+        setRecommendationsExc(res.data[1]);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
 
   return (
     <div>
@@ -102,7 +159,7 @@ export default function Album() {
           <Container sx={{ py: 10 }} maxWidth="md"><br></br><br></br>
             <Divider textAlign="left"> The lessons recommended for you</Divider><br></br><br></br>
             <Grid container spacing={4}>
-            {console.log(recommendationsLessons)}
+              {console.log(recommendationsLessons)}
               {recommendationsLessons.map((card, index) => (
                 <Lesson key={index} name={card.name} imgPath={card.imgPath} ></Lesson>
               ))}
