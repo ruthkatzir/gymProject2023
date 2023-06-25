@@ -28,10 +28,10 @@ const Uploader = ({ file, setFile, label }) => {
   }
   return (
     <>
-      <Button variant="outlined" component="label">{label ? label : "File"}
+      <Button variant="outlined" component="label">{label ? label : "put your img"}
         <input type="file" onChange={onSelectFile} id="file" hidden />
       </Button>
-      <input type="file" onChange={onSelectFile} name="file" />
+      {/* <input type="file" onChange={onSelectFile} name="file" /> */}
     </>
   )
 }

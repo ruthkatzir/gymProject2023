@@ -50,10 +50,13 @@ function PricingContent() {
         const config = {
             headers: { Authorization: `Bearer ${token}` }
         };
-        axios.post("http://localhost:3600/api/purchase", { userId: currentUser.gmail, type: type, numEnters: numEnters }, config)
-            .then(console.log)
-            .catch(console.log);
-        setOpen(true);
+        try{
+            axios.post("http://localhost:3600/api/purchase", { userId: currentUser.gmail, type: type, numEnters: numEnters }, config)
+            setOpen(true);
+        }
+        catch{
+            alert("You must login or register before making the purchase");
+        } 
     };
 
     return (

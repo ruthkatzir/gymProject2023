@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import WideTitleCard from "./WideTitleCard";
@@ -45,7 +46,7 @@ const MyComponent = () => {
                             onClick={handleCardClick}
                             cardImgSrc={item.ActiveType}
                         />
-                        {isChoose && <AlertDialog open='true' />}
+                        {isChoose && <AlertDialog open={true} />}
                     </div>
                 ))}
             </div>
@@ -54,4 +55,3 @@ const MyComponent = () => {
 };
 
 export default MyComponent;
-

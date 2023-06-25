@@ -92,7 +92,7 @@ export default function Album() {
         console.log("latestRow ", latestRow);
         console.log("partttt ", partName);
 
-        if (latestRow.weight > 60 && latestRow.WaistCircumference > 15) {
+        if (latestRow.weight > 60 && latestRow.WaistCircumference > 40) {
           console.log("in ");
           partName = "Abdominals";
         } else if (latestRow.weight > 60 && (latestRow.height < 170 || latestRow.HipCircumference > 40)) {

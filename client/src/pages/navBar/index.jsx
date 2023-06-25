@@ -61,7 +61,7 @@ function ResponsiveAppBar() {
                         playing={true}
                         loop={true}
                         muted={true}
-                        width="180px"
+                        width="190px"
                         height="100%"
                         style={{ position: 'absolute' }}
                     />

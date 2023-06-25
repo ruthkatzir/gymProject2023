@@ -4,9 +4,9 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import img1 from './../../../images/1.jpg';
-import img2 from './../../../images/2.jpg';
-import img3 from './../../../images/3.jpg';
+import img1 from './1.jpg';
+import img2 from './2.jpg';
+import img3 from './3.jpg';
 import ExcDesc from './ExerciseDescription'
 import Grid from '@mui/material/Grid';
 

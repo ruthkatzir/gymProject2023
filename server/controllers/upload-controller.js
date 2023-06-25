@@ -6,10 +6,14 @@ const upload = async (req, res) => {
     if (!req.file) {
         res.status(500).send("No file")
     }
+    console.log("1");
     const file = req.file
-    const folder = path.join(__dirname, "..", "public", "images")
+    const folder = path.join(__dirname, '..', '..', 'server_venv');
+    console.log("2");
     const filename = `${uuid()}_${req.file.originalname}`
+    console.log("3");
     const fileUrl = `${folder}/${filename}`
+    console.log("4");
 
     try {
         await fsPromises.writeFile(fileUrl, req.file.buffer)

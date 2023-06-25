@@ -4,9 +4,9 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import img1 from './../../../images/1.jpg';
-import img2 from './../../../images/2.jpg';
-import img3 from './../../../images/3.jpg';
+import img1 from './1.jpg';
+import img2 from './2.jpg';
+import img3 from './3.jpg';
 import Grid from '@mui/material/Grid';
 
 export default function ImgMediaCard(props) {
@@ -17,7 +17,7 @@ export default function ImgMediaCard(props) {
           component="img"
           alt="lesson img"
           height="140"
-          image={props.imgPath==='1.jpg'? img1 : props.imgPath==='2.jpg'? img2: img3}//לקרא את התמונה מהשרת
+          image={props.imgPath==='1.jpg'? img1 : props.imgPath==='2.jpg'? img2: img2}//לקרא את התמונה מהשרת
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">

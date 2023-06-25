@@ -61,8 +61,8 @@ export default function WeeklySchedule() {
 
 
     return (
-        <TableContainer component={Paper} style={{ marginLeft: '2%', maxWidth: '91%' }} >
-            <Table sx={{ minWidth: 650, maxWidth: '60%' }} aria-label="caption table">
+        <TableContainer component={Paper} style={{ marginLeft: '10%', maxWidth: '60%'}} >
+            <Table sx={{ minWidth: 650, maxWidth: '100%' }} aria-label="caption table">
                 <TableHead>
                     <TableRow>
                         <TableCell></TableCell>

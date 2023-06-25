@@ -28,6 +28,7 @@ app.use("/api/secretary", require("./routes/secretaryRoutes"));
 app.use("/api/recommendations", require("./routes/RecommendationsRoutes"));
 app.use("/api/participations", require("./routes/participationRoutes"))
 app.use("/api/upload", require("./routes/upload-router"));
+app.use("/api/ai", require("./routes/AI_Routes"));
 
 app.all('*', (req, res) => {
     res.status(404)
