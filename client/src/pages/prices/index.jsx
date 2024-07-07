@@ -45,6 +45,8 @@ function PricingContent() {
 
     const handleChoosingButtonClick = async (rowId) => {
         const token = localStorage.getItem("token");
+        console.log(rows);
+        console.log(rows[rowId],rowId);
         const numEnters = rows[rowId].numEnter;
         const type = rows[rowId].id;
         const config = {
@@ -135,7 +137,7 @@ function PricingContent() {
                             </CardContent>
                             <CardActions>
                                 <Button
-                                    onClick={() => { handleChoosingButtonClick(tier.id) }}
+                                    onClick={() => { handleChoosingButtonClick(tier.id-1) }}
                                     fullWidth
                                     variant={tier.buttonVariant}
                                 >

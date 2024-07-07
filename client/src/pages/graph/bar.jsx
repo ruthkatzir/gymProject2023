@@ -51,9 +51,10 @@ export default function BarParticipations() {
             types.forEach(lesson => { countlesson[lesson]++ });
 
             let obj = [];
+            let x_names=["0","zomna","pilatis","sport"];
             unique.forEach(x => {
                 obj.push({
-                    name: x,
+                    name: x_names[x],
                     uv: 3000,
                     pv: countlesson[x],
                     amt: 2210

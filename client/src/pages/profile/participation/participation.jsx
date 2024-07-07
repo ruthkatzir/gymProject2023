@@ -35,7 +35,7 @@ const Participation = (props) => {
             {props.icon ? <FitnessCenterIcon /> : <SportsGymnasticsIcon />}
           </Avatar>
         </ListItemAvatar>
-        <ListItemText primary={participation.lessonType} secondary={fullDate} />
+        <ListItemText primary={participation.lessonType==1?"zomba":participation.lessonType==2?"pilatis":"sport" } secondary={fullDate} />
       </div>
       <ListItemAvatar>
         {props.allowRating === false ?

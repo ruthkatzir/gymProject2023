@@ -11,7 +11,9 @@ class PurchasesController {
         }
         res.json(purchases + purchases.purchaseId)
     }
+    
     getAllPurchasesByUserId = async (req, res) => {
+        console.log("purchaseeeeeeeeeeee");
         const purchases = await purchaseDal.getPurchasesByUserId(req.params.id);
         if (!purchases?.length) {
             return res.status(400).json({ message: 'No purchase found' })

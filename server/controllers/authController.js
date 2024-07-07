@@ -3,6 +3,7 @@ const User = db.users
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const email = require('../utils/email')
+
 // process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
 const login = async (req, res) => {
@@ -52,4 +53,38 @@ const register = async (req, res) => {
         return res.status(400).json({ message: 'Invalid user data received' })
     }
 }
-module.exports = { login, register }
+
+
+
+// const getUserIdByImage = async (req, res) => {
+//     console.log("innnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn")
+//     console.log(req.params);
+//     console.log("222222222222222222")
+//     console.log(req.body);
+//     const img = req.params.imgPath;
+//     console.log(img);
+
+//     const foundUser = await User.findOne({ where: { ImgPath: img } })
+//     const userId = foundUser.gmail;
+//     if (!userId) {
+//         return res.status(400).json({ message: 'No user found' })
+//     }
+//     res.json(userId)
+// }
+const getUserIdByImage = async (req, res) => {
+    console.log("innnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn");
+    console.log(req.params);
+    console.log("222222222222222222");
+    console.log(req.body);
+    const img = req.params.imgPath;
+    console.log(img);
+
+    const foundUser = await User.findOne({ where: { ImgPath: img } });
+    const userId = foundUser.gmail;
+    if (!userId) {
+        return res.status(400).json({ message: 'No user found' });
+    }
+    res.json(userId);
+};
+
+module.exports = { login, register, getUserIdByImage }

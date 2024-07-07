@@ -79,7 +79,7 @@ export default function Footer() {
         label="Concat Us"
         value="Concat Us"
         icon={<ContactPhoneSharpIcon />}
-        onClick={() => navigateTo(`/sendReview`)}
+        onClick={() => navigateTo(`/concatUs`)}
         // onClick={()=>{<FormDialog/>}}
       >
         <Typography variant="caption" color="text.secondary" align="center">

@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography';
 const Regulations = ({ title, content }) => {
 
     return (
-        <div style={{ marginTop: '20%' }}>
+        <div style={{ marginTop: '10%' }}>
             <Typography variant="h6" component="h2" gutterBottom>
                 Regulations
             </Typography>

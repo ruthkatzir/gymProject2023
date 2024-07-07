@@ -115,4 +115,8 @@
      }
  }
 
+ ::ng-deep .css-wjh20t-MuiPagination-ul {
+    padding-top: 80% !important;
+ }
+
  

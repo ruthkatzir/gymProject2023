@@ -51,7 +51,7 @@ class AIController {
                 return res.status(400).json({ message: 'No permissionChecker found' });
             }
 
-            res.json(result);
+            res.json(result.slice(6));
         } catch (error) {
             console.error(error);
             res.status(500).json({ message: 'Internal server error' });

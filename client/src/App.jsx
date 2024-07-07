@@ -12,6 +12,7 @@ import Secretary from '../src/pages/Admin/index';
 import Regulations from '../src/pages/bottomBar/regrulations';
 import GymBranchList from '../src/pages/bottomBar/branches';
 import AccessibilityStatement from '../src/pages/bottomBar/accessibility';
+import ContactUs from '../src/pages/bottomBar/sendReview';
 import Footer from '../src/pages/footer';
 import Main from '../src/pages/AI';
 import { AuthContext, AuthContextProvider } from './context/authContext';
@@ -27,6 +28,7 @@ function App() {
           <Routes>
 
             <Route path='accessibilityStatement' element={<AccessibilityStatement></AccessibilityStatement>} />
+            <Route path='concatUs' element={<ContactUs></ContactUs>}/>
             <Route path='gymBranchList' element={<GymBranchList></GymBranchList>} />
             <Route path='regulations' element={<Regulations></Regulations>} />
             <Route path='enter-ai' element={<Main/>} />

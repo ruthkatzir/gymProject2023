@@ -33,8 +33,12 @@ const Graph = () => {
 
     var data3 = [];
     userMeasurements.forEach(e => {
-        var BMI = e.weight / (e.height * e.height);
-        data3.push({ name: e.measureDate, value: BMI });
+        var heightInMeters = e.height / 100;
+
+        // חישוב BMI
+        var BMI = e.weight / (heightInMeters * heightInMeters);
+
+        data3.push({ name: e.measureDate, value: BMI.toFixed(2) });
     })
 
 
